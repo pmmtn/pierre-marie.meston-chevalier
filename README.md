@@ -1,1 +1,1009 @@
-# pierre-marie.meston-chevalier
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pierre-Marie Meston Chevalier — Creative Design Lead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════
+   TOKENS
+════════════════════════════════════════════════ */
+:root {
+  --red:        #C51718;
+  --red-soft:   rgba(197,23,24,0.07);
+  --red-mid:    rgba(197,23,24,0.13);
+  --red-glow:   rgba(197,23,24,0.18);
+  --bg:         #F5F5F7;
+  --bg-white:   #FFFFFF;
+  --text:       #1D1D1F;
+  --text-2:     #3A3A3C;
+  --text-3:     #6E6E73;
+  --text-4:     #AEAEB2;
+  --border:     rgba(0,0,0,0.06);
+  --border-2:   rgba(0,0,0,0.10);
+  --shadow-sm:  0 2px 12px rgba(0,0,0,0.06);
+  --shadow-md:  0 8px 32px rgba(0,0,0,0.09);
+  --shadow-lg:  0 20px 60px rgba(0,0,0,0.11);
+  --shadow-xl:  0 32px 80px rgba(0,0,0,0.13);
+  --nav-h:      52px;
+  --r-xs:       8px;
+  --r:          20px;
+  --r-lg:       28px;
+  --r-xl:       36px;
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ════════════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* ════════════════════════════════════════════════
+   NAV
+════════════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  height: var(--nav-h);
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+}
+.nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text); text-decoration: none;
+}
+.nav-logo span { color: var(--red); }
+.nav-links { display: flex; align-items: center; gap: 0; }
+.nav-links a {
+  font-size: 13px; font-weight: 400;
+  color: var(--text-3); text-decoration: none;
+  padding: 0 14px; height: var(--nav-h);
+  display: flex; align-items: center;
+  transition: color 0.2s; letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 500; }
+.nav-pill {
+  background: var(--red) !important;
+  color: #fff !important; border-radius: 980px;
+  padding: 7px 18px !important; height: auto !important;
+  font-size: 12px !important; font-weight: 500 !important;
+  letter-spacing: 0.03em !important; margin-left: 8px;
+  transition: opacity 0.2s, transform 0.15s !important;
+}
+.nav-pill:hover { opacity: 0.88 !important; transform: scale(1.02); }
+
+/* ════════════════════════════════════════════════
+   PAGES
+════════════════════════════════════════════════ */
+.page { display: none; padding-top: var(--nav-h); min-height: 100vh; }
+.page.active { display: block; animation: pageIn 0.4s var(--ease); }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ════════════════════════════════════════════════
+   REUSABLE LAYOUT
+════════════════════════════════════════════════ */
+.section      { padding: 96px 80px; }
+.section-sm   { padding: 64px 80px; }
+.section-white { padding: 96px 80px; background: var(--bg-white); }
+
+.label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--red); margin-bottom: 16px;
+}
+.label::before { content: ''; width: 18px; height: 1.5px; background: var(--red); flex-shrink: 0; }
+
+.display {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 4.8vw, 72px);
+  font-weight: 400; line-height: 1.06; letter-spacing: -0.025em;
+  color: var(--text);
+}
+.display em { font-style: italic; color: var(--red); }
+
+.body-lg { font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--text-3); }
+.body-md { font-size: 15px; font-weight: 300; line-height: 1.7;  color: var(--text-3); }
+.body-sm { font-size: 13px; font-weight: 400; line-height: 1.6;  color: var(--text-3); }
+
+/* ════════════════════════════════════════════════
+   BUTTONS
+════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  border-radius: 980px; padding: 12px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 500; text-decoration: none;
+  cursor: pointer; border: none; transition: all 0.2s var(--ease);
+}
+.btn-red   { background: var(--red); color: #fff; }
+.btn-red:hover { opacity: 0.88; transform: scale(1.02); box-shadow: 0 8px 24px var(--red-glow); }
+.btn-ghost { background: rgba(0,0,0,0.05); color: var(--text); }
+.btn-ghost:hover { background: rgba(0,0,0,0.09); transform: scale(1.02); }
+.btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border-2); }
+.btn-outline:hover { border-color: rgba(0,0,0,0.2); transform: scale(1.02); }
+
+/* ════════════════════════════════════════════════
+   CARD BASE
+════════════════════════════════════════════════ */
+.card {
+  background: var(--bg-white); border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease);
+}
+.card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ════════════════════════════════════════════════
+   HERO
+════════════════════════════════════════════════ */
+.hero {
+  min-height: calc(100vh - var(--nav-h));
+  display: grid; grid-template-columns: 1fr 440px;
+  align-items: center; padding: 60px 80px 80px;
+  gap: 64px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--red); margin-bottom: 28px;
+}
+.hero-eyebrow::before { content: ''; width: 18px; height: 1.5px; background: var(--red); }
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(56px, 7vw, 96px);
+  font-weight: 400; line-height: 1.0; letter-spacing: -0.03em;
+  color: var(--text); margin-bottom: 20px;
+}
+.hero-name em { font-style: italic; color: var(--red); }
+.hero-tagline {
+  font-size: 20px; font-weight: 300; line-height: 1.65;
+  color: var(--text-3); margin-bottom: 20px; max-width: 500px;
+}
+.hero-tagline strong { color: var(--text-2); font-weight: 500; }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+.hero-pill {
+  font-size: 12px; font-weight: 500; padding: 6px 14px;
+  border-radius: 980px; background: var(--bg-white);
+  border: 1px solid var(--border-2); color: var(--text-2);
+  letter-spacing: 0.01em;
+}
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ── Memoji visual block ── */
+.memoji-wrap {
+  position: relative; display: flex; justify-content: center; align-items: center;
+}
+.memoji-card {
+  width: 340px; height: 400px;
+  background: linear-gradient(145deg, #ffffff 0%, #f0f0f4 100%);
+  border-radius: 40px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.8);
+  display: flex; align-items: flex-end; justify-content: center;
+  overflow: hidden; position: relative;
+}
+.memoji-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 60% 20%, rgba(197,23,24,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.memoji-img {
+  width: 88%; height: 88%;
+  object-fit: contain; object-position: bottom center;
+  position: relative; z-index: 1; display: block;
+}
+.memoji-fallback {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+}
+.memoji-fallback-init {
+  font-size: 80px; font-weight: 400; color: #c8cacf; line-height: 1;
+  letter-spacing: -0.02em; margin-bottom: 8px;
+}
+.memoji-fallback-sub { font-size: 12px; color: var(--text-4); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* floating micro-elements */
+.float-tag {
+  position: absolute; background: var(--bg-white);
+  border-radius: var(--r); padding: 10px 16px;
+  box-shadow: var(--shadow-md); border: 1px solid var(--border);
+  font-size: 12px; font-weight: 500; color: var(--text-2);
+  display: flex; align-items: center; gap: 7px; white-space: nowrap;
+}
+.float-tag .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+.ft-1 { top: 40px; right: -20px; animation: floatA 4s ease-in-out infinite; }
+.ft-2 { bottom: 100px; left: -28px; animation: floatB 5s ease-in-out infinite; }
+.ft-3 { top: 180px; right: -32px; animation: floatA 6s ease-in-out infinite 1s; }
+@keyframes floatA { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes floatB { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* ════════════════════════════════════════════════
+   BRING GRID (home)
+════════════════════════════════════════════════ */
+.bring-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+.bring-card {
+  padding: 40px; position: relative; overflow: hidden;
+}
+.bring-card::before {
+  content: '';
+  position: absolute; top: -32px; right: -32px;
+  width: 120px; height: 120px; border-radius: 50%;
+  background: var(--red-soft);
+  transition: transform 0.4s var(--ease);
+}
+.bring-card:hover::before { transform: scale(1.4); }
+.bring-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px; font-weight: 400; color: rgba(197,23,24,0.08);
+  line-height: 1; margin-bottom: 20px; display: block;
+  transition: color 0.3s;
+}
+.bring-card:hover .bring-num { color: rgba(197,23,24,0.14); }
+.bring-h { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+.bring-p { font-size: 14px; font-weight: 300; color: var(--text-3); line-height: 1.75; }
+
+/* ════════════════════════════════════════════════
+   WORK CARDS
+════════════════════════════════════════════════ */
+.work-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+
+.work-card {
+  border-radius: var(--r-xl); overflow: hidden;
+  background: var(--bg-white); border: 1px solid var(--border);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  cursor: default; display: flex; flex-direction: column;
+}
+.work-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.11);
+}
+.work-card-visual {
+  height: 180px; width: 100%;
+  position: relative; overflow: hidden; flex-shrink: 0;
+}
+.wv-1 { background: linear-gradient(135deg, #ffeaea 0%, #ffd0d0 50%, #ffe4e4 100%); }
+.wv-2 { background: linear-gradient(135deg, #fff0e8 0%, #ffd8cc 50%, #ffe8e0 100%); }
+.wv-3 { background: linear-gradient(135deg, #f0f4ff 0%, #dde5ff 50%, #e8edff 100%); }
+.wv-4 { background: linear-gradient(135deg, #f5f0ff 0%, #e4d8ff 50%, #ede0ff 100%); }
+.wv-5 { background: linear-gradient(135deg, #e8fff4 0%, #cdfce8 50%, #d8ffee 100%); }
+.wv-6 { background: linear-gradient(135deg, #fffce8 0%, #fff3cc 50%, #fffae0 100%); }
+.wv-7 { background: linear-gradient(135deg, #f0f8ff 0%, #daeeff 50%, #e8f4ff 100%); }
+
+/* abstract shape inside visual */
+.wv-shape {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.wv-shape::before, .wv-shape::after { content: ''; position: absolute; border-radius: 50%; }
+.wv-shape::before {
+  width: 100px; height: 100px;
+  background: rgba(255,255,255,0.4);
+  top: 20px; left: 50%; transform: translateX(-50%);
+}
+.wv-shape::after {
+  width: 60px; height: 60px;
+  background: rgba(197,23,24,0.10);
+  bottom: 24px; right: 32px;
+}
+.wv-abbr {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 400; color: rgba(0,0,0,0.14);
+  letter-spacing: -0.02em; position: relative; z-index: 1;
+  user-select: none;
+}
+.work-card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+.work-cat {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--red); margin-bottom: 8px;
+}
+.work-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; color: var(--text); line-height: 1.25; margin-bottom: 12px; }
+.work-desc { font-size: 13px; color: var(--text-3); line-height: 1.7; font-weight: 300; flex: 1; }
+.work-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.w-tag {
+  font-size: 11px; padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--text-3); font-weight: 500; letter-spacing: 0.01em;
+}
+
+/* ════════════════════════════════════════════════
+   APPROACH
+════════════════════════════════════════════════ */
+.approach-statement {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-weight: 400; line-height: 1.2;
+  color: var(--text); letter-spacing: -0.02em;
+  max-width: 740px; margin-bottom: 16px;
+}
+.approach-statement em { font-style: italic; color: var(--red); }
+
+.pillars { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 64px; }
+.pillar {
+  border-radius: var(--r-lg); padding: 40px 32px;
+  background: var(--bg-white); border: 1px solid var(--border);
+  position: relative; overflow: hidden;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.pillar:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 56px rgba(0,0,0,0.10);
+}
+.pillar::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--red); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+.pillar:hover::after { transform: scaleX(1); }
+.pillar-bg-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 100px; font-weight: 400;
+  color: var(--red-soft); line-height: 1;
+  position: absolute; bottom: -8px; right: 12px;
+  pointer-events: none; user-select: none;
+}
+.pillar-line { width: 24px; height: 2px; background: var(--red); margin-bottom: 20px; border-radius: 2px; }
+.pillar-h { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+.pillar-p { font-size: 14px; color: var(--text-3); line-height: 1.75; font-weight: 300; }
+
+/* from-to */
+.from-to-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; border-radius: var(--r); overflow: hidden; }
+.ftt { background: var(--bg-white); padding: 36px 40px; border: 1px solid var(--border); }
+.ftt:nth-child(2) { background: #FAFAFA; }
+.ftt-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-4); margin-bottom: 10px; }
+.ftt-arr { font-size: 22px; color: var(--red); display: block; margin-bottom: 10px; }
+.ftt-val { font-size: 16px; font-weight: 500; color: var(--text); }
+.ftt:nth-child(2) .ftt-val { color: var(--red); }
+
+/* ════════════════════════════════════════════════
+   PROFILE
+════════════════════════════════════════════════ */
+.tl { position: relative; padding-left: 28px; }
+.tl::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 16px; width: 1px; background: var(--border-2); }
+
+.tl-entry { position: relative; margin-bottom: 40px; }
+.tl-entry::before {
+  content: ''; position: absolute; left: -32px; top: 5px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--bg-white); border: 2px solid var(--border-2);
+}
+.tl-entry.now::before { background: var(--red); border-color: var(--red); }
+
+.tl-card { border-radius: var(--r); padding: 28px 32px; }
+.tl-year { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+.tl-role { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.tl-co { font-size: 13px; color: var(--text-4); margin-bottom: 12px; }
+.tl-desc { font-size: 14px; color: var(--text-3); line-height: 1.75; font-weight: 300; }
+
+.skills-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 80px; }
+.sg-title {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text);
+  padding-bottom: 12px; margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-2);
+}
+.sg-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+.sg-tag {
+  font-size: 13px; padding: 7px 14px; border-radius: 10px;
+  background: var(--bg-white); border: 1px solid var(--border);
+  color: var(--text-3); font-weight: 400;
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.sg-tag:hover { border-color: var(--red); color: var(--red); box-shadow: 0 2px 8px var(--red-soft); }
+.sg-tag.accent { background: var(--red-soft); border-color: rgba(197,23,24,0.15); color: var(--red); }
+
+/* ════════════════════════════════════════════════
+   CONTACT
+════════════════════════════════════════════════ */
+.contact-wrap {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex; align-items: center; justify-content: center;
+  padding: 80px;
+  background: radial-gradient(ellipse at 60% 50%, rgba(197,23,24,0.05) 0%, transparent 65%), var(--bg);
+}
+.contact-glass {
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-xl);
+  padding: 72px 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: center; max-width: 960px; width: 100%;
+}
+.contact-memoji {
+  width: 100%; aspect-ratio: 3/4; border-radius: var(--r-xl);
+  background: linear-gradient(145deg, #f7f7f9, #edeef2);
+  border: 1px solid var(--border);
+  display: flex; align-items: flex-end; justify-content: center;
+  overflow: hidden; position: relative;
+}
+.contact-memoji::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(197,23,24,0.06) 0%, transparent 60%);
+}
+.contact-memoji-img {
+  width: 85%; height: 85%;
+  object-fit: contain; object-position: bottom center;
+  position: relative; z-index: 1;
+}
+.contact-memoji-ph {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 60px; color: #c8cad0;
+}
+.contact-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+.contact-label::before { content: ''; width: 18px; height: 1.5px; background: var(--red); }
+.contact-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 16px; letter-spacing: -0.02em; }
+.contact-sub { font-size: 15px; font-weight: 300; line-height: 1.75; color: var(--text-3); margin-bottom: 44px; max-width: 380px; }
+.contact-lines { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+.contact-line { display: flex; align-items: center; gap: 14px; }
+.c-ico {
+  width: 36px; height: 36px; border-radius: var(--r-xs);
+  background: var(--bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.c-ico svg { width: 15px; height: 15px; stroke: var(--text-3); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.c-strong { font-size: 14px; font-weight: 500; color: var(--text); }
+.c-hint { font-size: 12px; color: var(--text-4); }
+
+/* ════════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════════ */
+footer {
+  padding: 32px 80px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px; color: var(--text-4); background: var(--bg);
+}
+footer a { color: var(--text-4); text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: var(--red); }
+.f-logo { font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; font-size: 12px; color: var(--text-2); }
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; padding: 56px 24px 80px; gap: 56px; }
+  .memoji-card { width: 280px; height: 340px; margin: 0 auto; }
+  .work-grid { grid-template-columns: repeat(2,1fr); }
+  .pillars { grid-template-columns: repeat(2,1fr); }
+  .skills-wrap { grid-template-columns: 1fr; gap: 0; }
+}
+@media (max-width: 768px) {
+  .section, .section-white, .section-sm { padding: 64px 24px; }
+  nav { padding: 0 20px; }
+  .nav-hide { display: none; }
+  .bring-grid { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: 1fr; }
+  .pillars { grid-template-columns: 1fr; }
+  .from-to-grid { grid-template-columns: 1fr; }
+  .contact-wrap { padding: 24px; }
+  .contact-glass { grid-template-columns: 1fr; gap: 40px; padding: 40px 32px; }
+  footer { padding: 24px; flex-direction: column; gap: 6px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav>
+  <a class="nav-logo" href="#" onclick="go('home')">PMMC<span> ·</span></a>
+  <div class="nav-links">
+    <a href="#" onclick="go('home')"     id="n-home"     class="active nav-hide">Home</a>
+    <a href="#" onclick="go('work')"     id="n-work"     class="nav-hide">Work</a>
+    <a href="#" onclick="go('approach')" id="n-approach" class="nav-hide">Approach</a>
+    <a href="#" onclick="go('profile')"  id="n-profile"  class="nav-hide">Profile</a>
+    <a href="#" onclick="go('contact')"  id="n-contact"  class="nav-pill">Contact</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════════
+     HOME
+════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hero-eyebrow">Corporate Communications · Symrise</div>
+      <h1 class="hero-name">Pierre-Marie<br><em>Meston Chevalier.</em></h1>
+      <p class="hero-tagline">
+        Visual communication, <strong>designed with clarity.</strong>
+      </p>
+      <p class="body-md" style="max-width:480px; margin-bottom:32px;">
+        I help turn complex internal information into clear, consistent and memorable visual experiences — across brand assets, platforms and corporate communications.
+      </p>
+      <div class="hero-pills">
+        <span class="hero-pill">Creative Design</span>
+        <span class="hero-pill">Corporate Communications</span>
+        <span class="hero-pill">Visual Storytelling</span>
+        <span class="hero-pill">Digital Platforms</span>
+        <span class="hero-pill">Brand Consistency</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="#" onclick="go('work')">Selected work</a>
+        <a class="btn btn-ghost" href="#" onclick="go('approach')">My approach</a>
+      </div>
+    </div>
+
+    <div class="memoji-wrap">
+      <div class="memoji-card">
+        <img class="memoji-img" src="pierre-marie-memoji.png" alt="Pierre-Marie Meston Chevalier"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="memoji-fallback" style="display:none;">
+          <div class="memoji-fallback-init">PM</div>
+          <div class="memoji-fallback-sub">Pierre-Marie</div>
+        </div>
+      </div>
+      <div class="float-tag ft-1"><span class="dot"></span> Creative Design Lead</div>
+      <div class="float-tag ft-2"><span class="dot"></span> 4 years · Symrise</div>
+      <div class="float-tag ft-3" style="font-size:11px; padding:8px 13px;">Brand &amp; Visual Systems</div>
+    </div>
+  </section>
+
+  <!-- BRING -->
+  <section class="section-white">
+    <div class="label">What I bring</div>
+    <h2 class="display" style="margin-bottom:16px;">Four strengths for<br><em>Creative Design.</em></h2>
+    <p class="body-lg" style="max-width:520px; margin-bottom:56px;">
+      My work sits between communication strategy, visual clarity and digital execution.
+    </p>
+    <div class="bring-grid">
+      <div class="card bring-card">
+        <span class="bring-num">01</span>
+        <div class="bring-h">Visual clarity</div>
+        <p class="bring-p">Turning complex messages into clear, structured and visually engaging communication. Design is not decoration — it is a way to make complexity easier to understand.</p>
+      </div>
+      <div class="card bring-card">
+        <span class="bring-num">02</span>
+        <div class="bring-h">Brand consistency</div>
+        <p class="bring-p">Creating templates, systems and visual rules that help teams across the organization communicate with one recognizable voice — regardless of function or geography.</p>
+      </div>
+      <div class="card bring-card">
+        <span class="bring-num">03</span>
+        <div class="bring-h">Digital communication platforms</div>
+        <p class="bring-p">Designing and improving internal digital touchpoints — asset libraries, screen networks, hubs and intranet spaces — with a focus on clarity, access and adoption.</p>
+      </div>
+      <div class="card bring-card">
+        <span class="bring-num">04</span>
+        <div class="bring-h">Creative direction mindset</div>
+        <p class="bring-p">Moving beyond execution to advise, structure and elevate the visual expression of corporate communications. From individual assets to scalable systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="f-logo">PMMC</span>
+    <span>Creative Design Lead · Corporate Communications · Symrise</span>
+    <a href="#" onclick="go('work')">Selected work →</a>
+  </footer>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     WORK
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-work">
+  <section class="section">
+    <div class="label">Selected projects</div>
+    <h2 class="display" style="margin-bottom:16px;">Work that shapes how<br><em>Symrise communicates.</em></h2>
+    <p class="body-lg" style="max-width:520px; margin-bottom:64px;">A selection of initiatives across platforms, editorial design, visual systems and internal communications — each reflecting a commitment to clarity, consistency and usability.</p>
+
+    <div class="work-grid">
+
+      <div class="work-card">
+        <div class="work-card-visual wv-1"><div class="wv-shape"><div class="wv-abbr">MC</div></div></div>
+        <div class="work-card-body">
+          <div class="work-cat">DAM / Digital asset management</div>
+          <div class="work-title">Media Center Relaunch</div>
+          <p class="work-desc">A complete restructuring of Symrise's DAM and Media Center — rethinking the frontend experience, content logic and naming conventions to make brand assets genuinely accessible and adoptable across teams.</p>
+          <div class="work-tags">
+            <span class="w-tag">Information architecture</span>
+            <span class="w-tag">UX thinking</span>
+            <span class="w-tag">Visual direction</span>
+            <span class="w-tag">Content strategy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-visual wv-2"><div class="wv-shape"><div class="wv-abbr">CV</div></div></div>
+        <div class="work-card-body">
+          <div class="work-cat">Art direction</div>
+          <div class="work-title">Core Values — Visual Direction</div>
+          <p class="work-desc">Development of a visual direction to bring Symrise's Core Values to life across internal communication materials — moving beyond abstract statements toward a more emotional, visual and memorable system.</p>
+          <div class="work-tags">
+            <span class="w-tag">Art direction</span>
+            <span class="w-tag">Values communication</span>
+            <span class="w-tag">Visual system</span>
+            <span class="w-tag">Internal engagement</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-visual wv-3"><div class="wv-shape"><div class="wv-abbr">SN</div></div></div>
+        <div class="work-card-body">
+          <div class="work-cat">Internal communications</div>
+          <div class="work-title">Screen Network Governance</div>
+          <p class="work-desc">Establishing governance and harmonization standards for Symrise's internal screen network — developing templates, editorial standards and content workflows for consistent communication across sites.</p>
+          <div class="work-tags">
+            <span class="w-tag">Governance</span>
+            <span class="w-tag">Template design</span>
+            <span class="w-tag">Content standards</span>
+            <span class="w-tag">Digital signage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-visual wv-4"><div class="wv-shape"><div class="wv-abbr">OS</div></div></div>
+        <div class="work-card-body">
+          <div class="work-cat">Intranet & digital platforms</div>
+          <div class="work-title">ONE Symrise — Internal Platforms</div>
+          <p class="work-desc">Visual and editorial support for ONE Symrise communication — designing widgets, hubs and internal pages that make organizational information more accessible, consistent and human.</p>
+          <div class="work-tags">
+            <span class="w-tag">Editorial design</span>
+            <span class="w-tag">Hub design</span>
+            <span class="w-tag">SharePoint</span>
+            <span class="w-tag">Visual coherence</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-visual wv-5"><div class="wv-shape"><div class="wv-abbr">27</div></div></div>
+        <div class="work-card-body">
+          <div class="work-cat">Visual concept & art direction</div>
+          <div class="work-title">2027 Corporate Calendar</div>
+          <p class="work-desc">Development of a unified visual concept — moving from fragmented imagery to a consistent, story-led visual system. The concept reveals Symrise's invisible presence in the textures of everyday life.</p>
+          <div class="work-tags">
+            <span class="w-tag">Art direction</span>
+            <span class="w-tag">Visual concept</span>
+            <span class="w-tag">Storytelling</span>
+            <span class="w-tag">Brand expression</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-visual wv-6"><div class="wv-shape"><div class="wv-abbr">Ed</div></div></div>
+        <div class="work-card-body">
+          <div class="work-cat">Editorial & corporate design</div>
+          <div class="work-title">Documents & Executive Materials</div>
+          <p class="work-desc">InDesign-led design of internal guides, reports, executive presentations and corporate documents — with an emphasis on clarity, information hierarchy, visual polish and accessibility.</p>
+          <div class="work-tags">
+            <span class="w-tag">InDesign</span>
+            <span class="w-tag">Layout systems</span>
+            <span class="w-tag">Hierarchy</span>
+            <span class="w-tag">Corporate design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card" style="grid-column: span 1;">
+        <div class="work-card-visual wv-7"><div class="wv-shape"><div class="wv-abbr">Ds</div></div></div>
+        <div class="work-card-body">
+          <div class="work-cat">Design systems</div>
+          <div class="work-title">Templates & Brand Consistency</div>
+          <p class="work-desc">Building and maintaining a library of templates, visual guidelines and design assets that help teams across Symrise communicate with consistency and quality — making good design the default, not the exception.</p>
+          <div class="work-tags">
+            <span class="w-tag">Template design</span>
+            <span class="w-tag">Visual guidelines</span>
+            <span class="w-tag">Design systems</span>
+            <span class="w-tag">Brand consistency</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span class="f-logo">PMMC</span>
+    <span>Corporate Communications · Symrise</span>
+    <a href="#" onclick="go('approach')">My approach →</a>
+  </footer>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     APPROACH
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-approach">
+
+  <section class="section">
+    <div class="label">My approach</div>
+    <div class="approach-statement">
+      Design is not decoration.<br>
+      <em>It is a way to make complexity easier to understand.</em>
+    </div>
+    <p class="body-lg" style="max-width:560px; margin-top:20px;">
+      My work sits between communication strategy, visual clarity and digital execution. I help transform internal information into clear, consistent and memorable visual experiences.
+    </p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-bg-num">01</div>
+        <div class="pillar-line"></div>
+        <div class="pillar-h">Clarity</div>
+        <p class="pillar-p">Design should make information easier to understand — not just easier to look at. Every layout decision, every hierarchy choice, every colour signal is an act of communication.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-bg-num">02</div>
+        <div class="pillar-line"></div>
+        <div class="pillar-h">Consistency</div>
+        <p class="pillar-p">A strong visual system helps every team speak with one recognizable voice. Consistency is not rigidity — it is the foundation that makes differentiation meaningful.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-bg-num">03</div>
+        <div class="pillar-line"></div>
+        <div class="pillar-h">Emotion</div>
+        <p class="pillar-p">Even internal communication deserves rhythm, warmth and memorability. The best corporate communication doesn't feel corporate — it feels human.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-bg-num">04</div>
+        <div class="pillar-line"></div>
+        <div class="pillar-h">Usefulness</div>
+        <p class="pillar-p">Beautiful is not enough. The work must help people find, understand and act. Usefulness and elegance are not opposites — they are the same ambition.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-white">
+    <div class="label">The trajectory</div>
+    <h2 class="display" style="margin-bottom:16px;">From execution<br><em>to creative direction.</em></h2>
+    <p class="body-lg" style="max-width:540px; margin-bottom:56px;">I already contribute to how Symrise communicates visually. The Creative Design Lead role is an opportunity to scale that impact — from individual outputs to visual leadership at a global level.</p>
+
+    <div class="from-to-grid" style="margin-bottom:16px;">
+      <div class="ftt">
+        <div class="ftt-label">From</div>
+        <span class="ftt-arr">→</span>
+        <div class="ftt-val">Individual visual assets</div>
+      </div>
+      <div class="ftt">
+        <div class="ftt-label">To</div>
+        <span class="ftt-arr" style="color:var(--text);">→</span>
+        <div class="ftt-val">Scalable visual systems</div>
+      </div>
+      <div class="ftt">
+        <div class="ftt-label">Impact</div>
+        <span class="ftt-arr">→</span>
+        <div class="ftt-val">Visual leadership</div>
+      </div>
+    </div>
+    <div class="from-to-grid">
+      <div class="ftt">
+        <div class="ftt-label">From</div>
+        <span class="ftt-arr">→</span>
+        <div class="ftt-val">Supporting communication</div>
+      </div>
+      <div class="ftt">
+        <div class="ftt-label">To</div>
+        <span class="ftt-arr" style="color:var(--text);">→</span>
+        <div class="ftt-val">Shaping communication</div>
+      </div>
+      <div class="ftt">
+        <div class="ftt-label">Scope</div>
+        <span class="ftt-arr">→</span>
+        <div class="ftt-val">Global influence</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="f-logo">PMMC</span>
+    <span>Corporate Communications · Symrise</span>
+    <a href="#" onclick="go('profile')">Profile →</a>
+  </footer>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PROFILE
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-profile">
+
+  <section class="section">
+    <div class="label">Career at Symrise</div>
+    <h2 class="display" style="margin-bottom:16px;">A journey built<br><em>from within.</em></h2>
+    <p class="body-lg" style="max-width:520px; margin-bottom:64px;">Four years of growing contribution to how Symrise communicates — from business unit support to corporate visual leadership.</p>
+
+    <div class="tl">
+      <div class="tl-entry now">
+        <div class="card tl-card">
+          <div class="tl-year">2025 — Present</div>
+          <div class="tl-role">Corporate Communications — Creative Design Lead trajectory</div>
+          <div class="tl-co">Symrise AG · Corporate Communications</div>
+          <p class="tl-desc">Leading visual communication initiatives across internal platforms, digital signage, editorial design and asset management. Driving the Media Center relaunch, Screen Network governance and the visual concept for the 2027 Corporate Calendar. Developing templates and design systems that support consistent communication at scale.</p>
+        </div>
+      </div>
+      <div class="tl-entry">
+        <div class="card tl-card">
+          <div class="tl-year">2023 — 2025</div>
+          <div class="tl-role">Internal Communications & Visual Design</div>
+          <div class="tl-co">Symrise AG · Corporate Communications</div>
+          <p class="tl-desc">Transitioned into Corporate Communications with a focus on internal platforms, visual design and brand consistency. Designed and supported ONE Symrise communication hubs, internal pages and digital content. Built and maintained templates and visual guidelines to help local teams communicate with more quality and coherence.</p>
+        </div>
+      </div>
+      <div class="tl-entry">
+        <div class="card tl-card">
+          <div class="tl-year">2022 — 2023</div>
+          <div class="tl-role">Communications Support — TN&H</div>
+          <div class="tl-co">Symrise AG · Taste, Nutrition & Health</div>
+          <p class="tl-desc">Communications support within the TN&H business unit — editorial design, presentation materials, internal documents and visual assets. Developed a strong understanding of Symrise's communication needs, visual identity and organizational complexity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-white">
+    <div class="label">Skills & tools</div>
+    <h2 class="display" style="margin-bottom:56px;">How I work.</h2>
+
+    <div class="skills-wrap">
+      <div>
+        <div>
+          <div class="sg-title">Creative & Visual Design</div>
+          <div class="sg-tags">
+            <span class="sg-tag accent">Visual storytelling</span>
+            <span class="sg-tag accent">Art direction</span>
+            <span class="sg-tag accent">Layout systems</span>
+            <span class="sg-tag accent">Editorial design</span>
+            <span class="sg-tag accent">Presentation design</span>
+            <span class="sg-tag accent">Digital-first design</span>
+            <span class="sg-tag accent">Brand consistency</span>
+          </div>
+        </div>
+        <div>
+          <div class="sg-title">Corporate Communications</div>
+          <div class="sg-tags">
+            <span class="sg-tag">Internal communications</span>
+            <span class="sg-tag">Message hierarchy</span>
+            <span class="sg-tag">Cross-functional collaboration</span>
+            <span class="sg-tag">Stakeholder support</span>
+            <span class="sg-tag">Employee engagement</span>
+            <span class="sg-tag">Communication planning</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div class="sg-title">Tools</div>
+          <div class="sg-tags">
+            <span class="sg-tag">Adobe InDesign</span>
+            <span class="sg-tag">Illustrator</span>
+            <span class="sg-tag">Photoshop</span>
+            <span class="sg-tag">Figma</span>
+            <span class="sg-tag">PowerPoint</span>
+            <span class="sg-tag">SharePoint</span>
+            <span class="sg-tag">DAM / Celum</span>
+            <span class="sg-tag">Comeen</span>
+            <span class="sg-tag">Microsoft 365</span>
+          </div>
+        </div>
+        <div>
+          <div class="sg-title">Ways of working</div>
+          <div class="sg-tags">
+            <span class="sg-tag">Creative ownership</span>
+            <span class="sg-tag">Precision</span>
+            <span class="sg-tag">Structure</span>
+            <span class="sg-tag">Autonomy</span>
+            <span class="sg-tag">Collaborative leadership</span>
+            <span class="sg-tag">Attention to detail</span>
+            <span class="sg-tag">Strategic thinking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="f-logo">PMMC</span>
+    <span>Corporate Communications · Symrise</span>
+    <a href="#" onclick="go('contact')">Contact →</a>
+  </footer>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="contact-wrap">
+    <div class="contact-glass">
+
+      <div class="contact-memoji">
+        <img class="contact-memoji-img" src="pierre-marie-memoji.png" alt="Pierre-Marie"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="contact-memoji-ph" style="display:none;">PM</div>
+      </div>
+
+      <div>
+        <div class="contact-label">Get in touch</div>
+        <div class="contact-title">Let's talk about<br><em style="font-style:italic;color:var(--red);">Creative Design.</em></div>
+        <p class="contact-sub">Open to discussing the Creative Design Lead opportunity and how visual communication can support a more consistent Symrise experience.</p>
+
+        <div class="contact-lines">
+          <div class="contact-line">
+            <div class="c-ico">
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <div class="c-strong">pierre-marie@example.com</div>
+              <div class="c-hint">Professional email</div>
+            </div>
+          </div>
+          <div class="contact-line">
+            <div class="c-ico">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="c-strong">linkedin.com/in/pmmc</div>
+              <div class="c-hint">LinkedIn</div>
+            </div>
+          </div>
+          <div class="contact-line">
+            <div class="c-ico">
+              <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="c-strong">France-based</div>
+              <div class="c-hint">Open to global collaboration</div>
+            </div>
+          </div>
+        </div>
+
+        <a class="btn btn-red" href="mailto:pierre-marie@example.com">Send a message</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+function go(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const p = document.getElementById('page-' + id);
+  const n = document.getElementById('n-' + id);
+  if (p) p.classList.add('active');
+  if (n) n.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  return false;
+}
+document.querySelectorAll('a[href="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+</script>
+</body>
+</html>
