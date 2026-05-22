@@ -393,9 +393,16 @@ nav {
 
 .tl-entry { position: relative; margin-bottom: 40px; }
 .tl-entry::before {
-  content: ''; position: absolute; left: -32px; top: 5px;
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--bg-white); border: 2px solid var(--border-2);
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-white);
+  border: 2px solid var(--border-2);
 }
 .tl-entry.now::before { background: var(--red); border-color: var(--red); }
 
