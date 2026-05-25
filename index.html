@@ -400,62 +400,103 @@ nav {
 .ftt:nth-child(2) .ftt-val { color: var(--red); }
 
 /* ════════════════════════════════════════════════
-   COMPACT STRENGTHS
+   ROLE STRENGTHS — COMPACT
 ════════════════════════════════════════════════ */
-.strengths-compact {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  max-width: 980px;
+
+.role-strengths-section {
+  background: var(--bg);
 }
 
-.strength-compact-card {
+.role-strengths-header {
   display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 20px;
-  align-items: start;
-  padding: 26px 28px;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  align-items: end;
+  max-width: 1180px;
+  margin: 0 auto 42px;
+}
+
+.role-strengths-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 3.2vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+.role-strengths-intro {
+  max-width: 560px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-3);
+}
+
+.role-strengths-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.role-strength-item {
   background: var(--bg-white);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
+  padding: 26px 24px;
+  min-height: 190px;
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
-.strength-compact-card:hover {
+.role-strength-item:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: rgba(197, 23, 24, 0.16);
 }
 
-.strength-num {
+.role-strength-item span {
+  display: block;
   font-family: 'Playfair Display', serif;
-  font-size: 34px;
+  font-size: 30px;
   line-height: 1;
-  color: rgba(197, 23, 24, 0.16);
+  color: rgba(197, 23, 24, 0.18);
+  margin-bottom: 24px;
 }
 
-.strength-compact-card h3 {
-  font-size: 16px;
+.role-strength-item h3 {
+  font-size: 15px;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
-.strength-compact-card p {
+.role-strength-item p {
   font-size: 13px;
   font-weight: 300;
   line-height: 1.65;
   color: var(--text-3);
 }
 
-@media (max-width: 768px) {
-  .strengths-compact {
+@media (max-width: 1100px) {
+  .role-strengths-header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .role-strengths-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .role-strengths-strip {
     grid-template-columns: 1fr;
   }
 
-  .strength-compact-card {
-    grid-template-columns: 40px 1fr;
-    padding: 22px 24px;
+  .role-strength-item {
+    min-height: auto;
   }
 }
 
@@ -1341,48 +1382,45 @@ footer a:hover { color: var(--red); }
   </section>
 
   <section class="section role-strengths-section">
-    <div class="label">What I bring</div>
-    <h2 class="display" style="margin-bottom:16px;">
-      Four strengths<br><em>for this role.</em>
-    </h2>
-    <p class="body-lg" style="max-width:620px; margin-bottom:48px;">
+  <div class="role-strengths-header">
+    <div>
+      <div class="label">What I bring</div>
+      <h2 class="role-strengths-heading">
+        Four strengths for this role.
+      </h2>
+    </div>
+
+    <p class="role-strengths-intro">
       A combination of visual clarity, brand consistency, platform thinking and creative direction — shaped by a strong understanding of Symrise from the inside.
     </p>
+  </div>
 
-    <div class="strengths-compact">
-      <div class="strength-compact-card">
-        <span class="strength-num">01</span>
-        <div>
-          <h3>Visual clarity</h3>
-          <p>Turning complex internal messages into clear, structured and memorable communication.</p>
-        </div>
-      </div>
-
-      <div class="strength-compact-card">
-        <span class="strength-num">02</span>
-        <div>
-          <h3>Brand consistency</h3>
-          <p>Building templates, systems and visual rules that help teams communicate with one recognizable voice.</p>
-        </div>
-      </div>
-
-      <div class="strength-compact-card">
-        <span class="strength-num">03</span>
-        <div>
-          <h3>Digital platforms</h3>
-          <p>Improving internal touchpoints — asset libraries, screen networks, hubs and intranet spaces.</p>
-        </div>
-      </div>
-
-      <div class="strength-compact-card">
-        <span class="strength-num">04</span>
-        <div>
-          <h3>Creative direction mindset</h3>
-          <p>Moving beyond execution to advise, structure and elevate visual communication at a broader scale.</p>
-        </div>
-      </div>
+  <div class="role-strengths-strip">
+    <div class="role-strength-item">
+      <span>01</span>
+      <h3>Visual clarity</h3>
+      <p>Turning complex internal messages into clear, structured and memorable communication.</p>
     </div>
-  </section>
+
+    <div class="role-strength-item">
+      <span>02</span>
+      <h3>Brand consistency</h3>
+      <p>Building templates, systems and visual rules that help teams communicate with one recognizable voice.</p>
+    </div>
+
+    <div class="role-strength-item">
+      <span>03</span>
+      <h3>Digital platforms</h3>
+      <p>Improving internal touchpoints — asset libraries, screen networks, hubs and intranet spaces.</p>
+    </div>
+
+    <div class="role-strength-item">
+      <span>04</span>
+      <h3>Creative direction mindset</h3>
+      <p>Moving beyond execution to advise, structure and elevate visual communication at a broader scale.</p>
+    </div>
+  </div>
+</section>
 
   <footer>
     <span class="f-logo">PMMC</span>
