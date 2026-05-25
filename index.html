@@ -438,6 +438,26 @@ nav {
 .sg-tag.accent { background: var(--red-soft); border-color: rgba(197,23,24,0.15); color: var(--red); }
 
 /* ════════════════════════════════════════════════
+   LETTER
+════════════════════════════════════════════════ */
+.letter-card {
+  padding: 56px;
+  max-width: 860px;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  box-shadow: var(--shadow-lg);
+}
+
+.letter-card p {
+  margin-bottom: 24px;
+}
+
+.letter-card p:last-child {
+  margin-bottom: 0;
+}
+   
+/* ════════════════════════════════════════════════
    CONTACT
 ════════════════════════════════════════════════ */
 .contact-wrap {
@@ -966,6 +986,49 @@ footer a:hover { color: var(--red); }
 </div>
 
 
+<!-- ════════════════════════════════════════════════════════
+     LETTER
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-letter">
+  <section class="section">
+    <div class="label">Motivation letter</div>
+    <h2 class="display" style="margin-bottom:16px;">
+      Why I am applying<br><em>for this role.</em>
+    </h2>
+    <p class="body-lg" style="max-width:620px; margin-bottom:56px;">
+      The Global Creative Design Lead opportunity feels like the natural continuation of the work I have already been building at Symrise.
+    </p>
+
+    <div class="card letter-card">
+      <p class="body-md">
+        I am applying for this role because it reflects the direction my work has already been taking: moving from visual execution to creative direction, from individual communication assets to scalable systems, and from isolated requests to a more consistent visual language.
+      </p>
+
+      <p class="body-md">
+        Over the past years, I have developed a strong understanding of Symrise’s organization, visual identity, internal platforms and communication needs. I have contributed to digital signage, intranet content, editorial documents, visual systems, internal branding initiatives and the evolution of the Media Center.
+      </p>
+
+      <p class="body-md">
+        What motivates me in this opportunity is the possibility to help shape how Symrise communicates visually at a broader level. I believe design can do more than make communication look better. It can make messages clearer, systems easier to use, and corporate storytelling more coherent, memorable and useful.
+      </p>
+
+      <p class="body-md">
+        I would bring a combination of creative sensitivity, structure, precision and internal knowledge. My ambition would be to support a stronger visual expression across corporate communications, while creating practical tools and systems that teams can genuinely adopt.
+      </p>
+
+      <p class="body-md">
+        This role feels like a natural next step: an opportunity to contribute not only through design, but through visual leadership.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="f-logo">PMMC</span>
+    <span>Global Creative Design Lead · Motivation letter</span>
+    <a href="#" onclick="go('contact')">Contact →</a>
+  </footer>
+</div>
+   
 <!-- ════════════════════════════════════════════════════════
      CONTACT
 ════════════════════════════════════════════════════════ -->
