@@ -566,7 +566,123 @@ footer a:hover { color: var(--red); }
 </style>
 </head>
 <body>
+   
+/* ════════════════════════════════════════════════
+   TRAJECTORY STRIP
+════════════════════════════════════════════════ */
+.trajectory-strip {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: 8px;
+}
 
+.trajectory-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px 36px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  position: relative;
+  transition: box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.trajectory-step:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.trajectory-step--now {
+  background: var(--bg-white);
+  border-color: rgba(197, 23, 24, 0.18);
+}
+
+.trajectory-step--now::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2.5px;
+  background: var(--red);
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+}
+
+.trajectory-step--next {
+  background: var(--red-soft);
+  border-color: rgba(197, 23, 24, 0.12);
+}
+
+.trajectory-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-4);
+}
+
+.trajectory-step--now .trajectory-eyebrow,
+.trajectory-step--next .trajectory-eyebrow {
+  color: var(--red);
+}
+
+.trajectory-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.trajectory-step--now .trajectory-name {
+  color: var(--red);
+}
+
+.trajectory-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-3);
+  max-width: 220px;
+}
+
+.trajectory-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  margin-top: 44px; /* align with text center */
+  color: var(--red);
+  opacity: 0.45;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .trajectory-strip {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .trajectory-arrow {
+    margin: 0;
+    width: 100%;
+    height: 36px;
+    transform: rotate(90deg);
+  }
+
+  .trajectory-step {
+    padding: 24px 24px;
+  }
+
+  .trajectory-desc {
+    max-width: 100%;
+  }
+}
+   
 <!-- ═══════ NAV ═══════ -->
 <nav>
   <a class="nav-logo" href="#" onclick="go('home')">PMMC<span> ·</span></a>
@@ -804,49 +920,47 @@ footer a:hover { color: var(--red); }
     </div>
   </section>
 
-  <section class="section-white">
-    <div class="label">The trajectory</div>
-    <h2 class="display" style="margin-bottom:16px;">From execution<br><em>to creative direction.</em></h2>
-    <p class="body-lg" style="max-width:620px; margin-bottom:56px;">
-      The Global Creative Design Lead role reflects the direction my work has already been taking at Symrise: moving from individual assets to visual systems, from local needs to broader consistency, and from execution to creative leadership.
-    </p>
+<section class="section-white">
+  <div class="label">The trajectory</div>
+  <h2 class="display" style="margin-bottom:16px;">From execution<br><em>to creative direction.</em></h2>
+  <p class="body-lg" style="max-width:620px; margin-bottom:56px;">
+    The Global Creative Design Lead role reflects the direction my work has already been taking at Symrise — moving from individual assets to visual systems, and from execution to creative leadership.
+  </p>
 
-    <div class="from-to-grid" style="margin-bottom:16px;">
-      <div class="ftt">
-        <div class="ftt-label">From</div>
-        <span class="ftt-arr">→</span>
-        <div class="ftt-val">Individual visual assets</div>
-      </div>
-      <div class="ftt">
-        <div class="ftt-label">To</div>
-        <span class="ftt-arr" style="color:var(--text);">→</span>
-        <div class="ftt-val">Scalable visual systems</div>
-      </div>
-      <div class="ftt">
-        <div class="ftt-label">Impact</div>
-        <span class="ftt-arr">→</span>
-        <div class="ftt-val">Stronger brand consistency</div>
-      </div>
+  <div class="trajectory-strip">
+
+    <div class="trajectory-step">
+      <span class="trajectory-eyebrow">Before</span>
+      <span class="trajectory-name">Execution</span>
+      <span class="trajectory-desc">Creating clear, polished assets and supporting internal communication needs across teams.</span>
     </div>
 
-    <div class="from-to-grid">
-      <div class="ftt">
-        <div class="ftt-label">From</div>
-        <span class="ftt-arr">→</span>
-        <div class="ftt-val">Supporting communication</div>
-      </div>
-      <div class="ftt">
-        <div class="ftt-label">To</div>
-        <span class="ftt-arr" style="color:var(--text);">→</span>
-        <div class="ftt-val">Shaping communication</div>
-      </div>
-      <div class="ftt">
-        <div class="ftt-label">Scope</div>
-        <span class="ftt-arr">→</span>
-        <div class="ftt-val">Global creative contribution</div>
-      </div>
+    <div class="trajectory-arrow" aria-hidden="true">
+      <svg width="32" height="16" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 8H28M28 8L21 2M28 8L21 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
-  </section>
+
+    <div class="trajectory-step trajectory-step--now">
+      <span class="trajectory-eyebrow">Now</span>
+      <span class="trajectory-name">Systems</span>
+      <span class="trajectory-desc">Building templates, platforms and visual standards that drive consistency at scale.</span>
+    </div>
+
+    <div class="trajectory-arrow" aria-hidden="true">
+      <svg width="32" height="16" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 8H28M28 8L21 2M28 8L21 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="trajectory-step trajectory-step--next">
+      <span class="trajectory-eyebrow">Next</span>
+      <span class="trajectory-name">Direction</span>
+      <span class="trajectory-desc">Shaping a stronger, more coherent visual expression for corporate communications globally.</span>
+    </div>
+
+  </div>
+</section>
 
   <section class="section">
     <div class="label">Motivation letter</div>
