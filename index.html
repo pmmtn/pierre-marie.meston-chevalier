@@ -446,16 +446,347 @@ nav {
 /* ════════════════════════════════════════════════
    LETTER
 ════════════════════════════════════════════════ */
-.letter-card {
-  padding: 56px;
-  max-width: 860px;
-  background: rgba(255,255,255,0.82);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  box-shadow: var(--shadow-lg);
+/* ════════════════════════════════════════════════
+   ANIMATED LETTER PAGE
+════════════════════════════════════════════════ */
+
+.cover-wrap {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  flex-direction: column;
 }
-.letter-card p { margin-bottom: 24px; }
-.letter-card p:last-child { margin-bottom: 0; }
+
+.cover-header {
+  padding: 72px 80px 56px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-white);
+}
+
+.cover-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.cover-eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 1.5px;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4.5vw, 64px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+.cover-title em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.cover-header-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cover-meta-line {
+  font-size: 13px;
+  color: var(--text-4);
+  line-height: 1.8;
+}
+
+.cover-meta-line strong {
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.controls-bar {
+  padding: 0 80px;
+  height: 52px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 100;
+}
+
+.controls-left,
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 6px 14px;
+  border-radius: 980px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-white);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.18s var(--ease);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.ctrl-btn:hover {
+  border-color: rgba(0,0,0,0.18);
+  background: var(--bg-white);
+  transform: scale(1.02);
+}
+
+.ctrl-btn.primary {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+}
+
+.ctrl-btn.primary:hover {
+  opacity: 0.88;
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+
+.speed-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-4);
+}
+
+.speed-options {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.speed-opt {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 980px;
+  border: 1px solid transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: all 0.15s;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+}
+
+.speed-opt:hover {
+  color: var(--text);
+}
+
+.speed-opt.active {
+  background: var(--bg-white);
+  border-color: var(--border-2);
+  color: var(--text);
+}
+
+.progress-wrap {
+  flex: 1;
+  max-width: 200px;
+  height: 2px;
+  background: var(--border-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--red);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.letter-outer {
+  flex: 1;
+  background: var(--bg);
+  padding: 80px 80px 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.letter-sheet {
+  width: 100%;
+  max-width: 760px;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 72px 80px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.04);
+  position: relative;
+  min-height: 600px;
+}
+
+.letter-sheet::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+  border-radius: 4px 4px 0 0;
+}
+
+.letter-date {
+  font-size: 13px;
+  color: var(--text-4);
+  letter-spacing: 0.04em;
+  margin-bottom: 40px;
+  font-weight: 400;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.letter-date.visible {
+  opacity: 1;
+}
+
+.letter-salutation {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 32px;
+  line-height: 1.3;
+  min-height: 30px;
+}
+
+.letter-body {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--text-2);
+}
+
+.letter-body p {
+  margin-bottom: 28px;
+  min-height: 1em;
+}
+
+.letter-body p:last-child {
+  margin-bottom: 0;
+}
+
+.letter-sign {
+  margin-top: 48px;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+
+.letter-sign.visible {
+  opacity: 1;
+}
+
+.letter-sign-closing {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-3);
+  margin-bottom: 24px;
+}
+
+.letter-sign-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--red);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.letter-sign-title {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-4);
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--red);
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  border-radius: 1px;
+  animation: blink 0.9s step-end infinite;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.cursor.visible {
+  opacity: 1;
+}
+
+.cursor.done {
+  opacity: 0;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .cover-header {
+    padding: 48px 24px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cover-header-right {
+    text-align: left;
+  }
+
+  .controls-bar {
+    padding: 0 24px;
+    overflow-x: auto;
+  }
+
+  .letter-outer {
+    padding: 32px 16px 80px;
+  }
+
+  .letter-sheet {
+    padding: 40px 28px;
+  }
+}
 
 /* ════════════════════════════════════════════════
    CONTACT
@@ -1088,57 +1419,77 @@ footer a:hover { color: var(--red); }
   </footer>
 </div>
 
-   <!-- ════════════════════════════════════════════════════════
+<!-- ════════════════════════════════════════════════════════
      LETTER
 ════════════════════════════════════════════════════════ -->
 <div class="page" id="page-letter">
 
-  <section class="section">
-    <div class="label">Motivation letter</div>
-    <h2 class="display" style="margin-bottom:16px;">
-      Why I am applying<br><em>for this role.</em>
-    </h2>
-    <p class="body-lg" style="max-width:620px; margin-bottom:56px;">
-      The Global Creative Design Lead opportunity feels like the natural continuation of the work I have already been building at Symrise.
-    </p>
+  <div class="cover-wrap">
 
-    <div class="card letter-card">
-      <p class="body-md">
-        Dear Hiring Team,
-      </p>
+    <div class="cover-header">
+      <div class="cover-header-left">
+        <div class="cover-eyebrow">Motivation letter</div>
+        <h1 class="cover-title">Global Creative<br><em>Design Lead.</em></h1>
+      </div>
 
-      <p class="body-md">
-        I am applying for the Global Creative Design Lead role because it reflects the direction my work has already been taking — moving from visual execution to creative direction, from individual communication assets to scalable systems, and from isolated requests to a more consistent visual language for Symrise.
-      </p>
-
-      <p class="body-md">
-        Over the past four years, I have developed a strong understanding of Symrise's organization, visual identity, internal platforms and communication needs. I have contributed to digital signage, intranet content, editorial documents, visual systems, internal branding initiatives and the evolution of the Media Center — always with the same underlying ambition: making complex information easier to understand and more consistent to communicate.
-      </p>
-
-      <p class="body-md">
-        What motivates me in this opportunity is the possibility to help shape how Symrise communicates visually at a broader level. I believe design can do more than make communication look better. It can make messages clearer, systems easier to use, and corporate storytelling more coherent, memorable and useful.
-      </p>
-
-      <p class="body-md">
-        I would bring a combination of creative sensitivity, structure, precision and internal knowledge. My ambition would be to support a stronger visual expression across corporate communications, while creating practical tools and systems that teams can genuinely adopt — making quality design the default, not the exception.
-      </p>
-
-      <p class="body-md">
-        This role feels like a natural next step: an opportunity to contribute not only through design, but through creative leadership. I would be glad to discuss how I can help shape Symrise's visual communication at the scale this role enables.
-      </p>
-
-      <p class="body-md" style="margin-top:40px;">
-        With sincerity,<br>
-        <strong style="color:var(--text); font-weight:500;">Pierre-Marie Meston Chevalier</strong>
-      </p>
+      <div class="cover-header-right">
+        <div class="cover-meta-line"><strong>Pierre-Marie Meston Chevalier</strong></div>
+        <div class="cover-meta-line">Corporate Communications · Symrise</div>
+      </div>
     </div>
-  </section>
 
-  <footer>
-    <span class="f-logo">PMMC</span>
-    <span>Global Creative Design Lead · Motivation letter</span>
-    <a href="#" onclick="go('contact')">Contact →</a>
-  </footer>
+    <div class="controls-bar">
+      <div class="controls-left">
+        <button class="ctrl-btn primary" id="btn-play" onclick="togglePlay()">Play</button>
+        <button class="ctrl-btn" id="btn-reset" onclick="resetLetter()" disabled>Reset</button>
+
+        <div class="speed-label">Speed</div>
+
+        <div class="speed-options">
+          <button class="speed-opt" onclick="setSpeed('slow')">Slow</button>
+          <button class="speed-opt active" onclick="setSpeed('normal')">Normal</button>
+          <button class="speed-opt" onclick="setSpeed('fast')">Fast</button>
+        </div>
+      </div>
+
+      <div class="controls-right">
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="letter-outer">
+      <div class="letter-sheet">
+
+        <div class="letter-date" id="letter-date">Rennes, May 2026</div>
+
+        <div class="letter-salutation" id="letter-salutation"></div>
+
+        <div class="letter-body" id="letter-body">
+          <p id="p1"></p>
+          <p id="p2"></p>
+          <p id="p3"></p>
+          <p id="p4"></p>
+          <p id="p5"></p>
+        </div>
+
+        <div class="letter-sign" id="letter-sign">
+          <div class="letter-sign-closing">With sincerity,</div>
+          <div class="letter-sign-name">Pierre-Marie Meston Chevalier</div>
+          <div class="letter-sign-title">Corporate Communications · Symrise</div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <span class="f-logo">PMMC</span>
+      <span>Global Creative Design Lead · Motivation letter</span>
+      <a href="#" onclick="go('contact')">Contact →</a>
+    </footer>
+
+  </div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════
@@ -1201,12 +1552,218 @@ footer a:hover { color: var(--red); }
 function go(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+
   const p = document.getElementById('page-' + id);
   const n = document.getElementById('n-' + id);
+
   if (p) p.classList.add('active');
   if (n) n.classList.add('active');
+
   window.scrollTo({ top: 0, behavior: 'instant' });
+
+  if (id === 'letter') {
+    resetLetter();
+    setTimeout(play, 450);
+  } else {
+    if (playing) pause();
+  }
+
   return false;
+}
+
+const SPEEDS = { slow: 45, normal: 22, fast: 8 };
+let speed = 'normal';
+let delay = SPEEDS.normal;
+let playing = false;
+let done = false;
+let timeoutId = null;
+
+const SALUTATION = "Dear Hiring Team,";
+
+const PARAGRAPHS = [
+  "I am applying for the Global Creative Design Lead role because it reflects the direction my work has already been taking — moving from visual execution to creative direction, from individual communication assets to scalable systems, and from isolated requests to a more consistent visual language for Symrise.",
+  "Over the past four years, I have developed a strong understanding of Symrise's organization, visual identity, internal platforms and communication needs. I have contributed to digital signage, intranet content, editorial documents, visual systems, internal branding initiatives and the evolution of the Media Center — always with the same underlying ambition: making complex information easier to understand and more consistent to communicate.",
+  "What motivates me in this opportunity is the possibility to help shape how Symrise communicates visually at a broader level. I believe design can do more than make communication look better. It can make messages clearer, systems easier to use, and corporate storytelling more coherent, memorable and useful.",
+  "I would bring a combination of creative sensitivity, structure, precision and internal knowledge. My ambition would be to support a stronger visual expression across corporate communications, while creating practical tools and systems that teams can genuinely adopt — making quality design the default, not the exception.",
+  "This role feels like a natural next step: an opportunity to contribute not only through design, but through creative leadership. I would be glad to discuss how I can help shape Symrise's visual communication at the scale this role enables."
+];
+
+const allSegments = [
+  { target: 'letter-salutation', text: SALUTATION },
+  { target: 'p1', text: PARAGRAPHS[0] },
+  { target: 'p2', text: PARAGRAPHS[1] },
+  { target: 'p3', text: PARAGRAPHS[2] },
+  { target: 'p4', text: PARAGRAPHS[3] },
+  { target: 'p5', text: PARAGRAPHS[4] }
+];
+
+let currentSeg = 0;
+let currentChar = 0;
+let cursor = null;
+
+function buildCursor() {
+  const c = document.createElement('span');
+  c.className = 'cursor';
+  return c;
+}
+
+function setSpeed(s) {
+  speed = s;
+  delay = SPEEDS[s];
+
+  document.querySelectorAll('.speed-opt').forEach(b => b.classList.remove('active'));
+
+  const activeButton = document.querySelector(`.speed-opt[onclick="setSpeed('${s}')"]`);
+  if (activeButton) activeButton.classList.add('active');
+}
+
+function togglePlay() {
+  if (done) return;
+
+  if (playing) {
+    pause();
+  } else {
+    play();
+  }
+}
+
+function play() {
+  playing = true;
+
+  const playButton = document.getElementById('btn-play');
+  const resetButton = document.getElementById('btn-reset');
+  const letterDate = document.getElementById('letter-date');
+
+  if (playButton) playButton.textContent = 'Pause';
+  if (resetButton) resetButton.disabled = false;
+  if (letterDate) letterDate.classList.add('visible');
+
+  if (cursor) {
+    cursor.classList.add('visible');
+    cursor.style.animation = '';
+  }
+
+  typeNext();
+}
+
+function pause() {
+  playing = false;
+
+  const playButton = document.getElementById('btn-play');
+  if (playButton) playButton.textContent = 'Play';
+
+  if (timeoutId) clearTimeout(timeoutId);
+
+  if (cursor) {
+    cursor.classList.remove('visible');
+    cursor.style.animation = 'none';
+    cursor.style.opacity = '1';
+  }
+}
+
+function resetLetter() {
+  playing = false;
+  done = false;
+
+  if (timeoutId) clearTimeout(timeoutId);
+
+  currentSeg = 0;
+  currentChar = 0;
+
+  const playButton = document.getElementById('btn-play');
+  const resetButton = document.getElementById('btn-reset');
+  const progressBar = document.getElementById('progress-bar');
+  const letterDate = document.getElementById('letter-date');
+  const letterSign = document.getElementById('letter-sign');
+
+  if (playButton) {
+    playButton.textContent = 'Play';
+    playButton.disabled = false;
+  }
+
+  if (resetButton) resetButton.disabled = true;
+  if (progressBar) progressBar.style.width = '0%';
+  if (letterDate) letterDate.classList.remove('visible');
+  if (letterSign) letterSign.classList.remove('visible');
+
+  const salutation = document.getElementById('letter-salutation');
+  if (salutation) salutation.textContent = '';
+
+  ['p1', 'p2', 'p3', 'p4', 'p5'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = '';
+  });
+
+  if (cursor) cursor.remove();
+  cursor = null;
+}
+
+function totalChars() {
+  return allSegments.reduce((acc, s) => acc + s.text.length, 0);
+}
+
+function charsTyped() {
+  let count = 0;
+  for (let i = 0; i < currentSeg; i++) count += allSegments[i].text.length;
+  count += currentChar;
+  return count;
+}
+
+function typeNext() {
+  if (!playing) return;
+
+  if (currentSeg >= allSegments.length) {
+    finishLetter();
+    return;
+  }
+
+  const seg = allSegments[currentSeg];
+  const el = document.getElementById(seg.target);
+
+  if (!el) return;
+
+  if (currentChar === 0) {
+    if (cursor) cursor.remove();
+    cursor = buildCursor();
+    cursor.classList.add('visible');
+    el.appendChild(cursor);
+  }
+
+  const textNode = document.createTextNode(seg.text[currentChar]);
+  el.insertBefore(textNode, cursor);
+  currentChar++;
+
+  const progressBar = document.getElementById('progress-bar');
+  if (progressBar) {
+    progressBar.style.width = `${(charsTyped() / totalChars()) * 100}%`;
+  }
+
+  if (currentChar >= seg.text.length) {
+    currentSeg++;
+    currentChar = 0;
+
+    timeoutId = setTimeout(typeNext, delay * 10);
+  } else {
+    timeoutId = setTimeout(typeNext, delay);
+  }
+}
+
+function finishLetter() {
+  playing = false;
+  done = true;
+
+  const playButton = document.getElementById('btn-play');
+  const progressBar = document.getElementById('progress-bar');
+  const letterSign = document.getElementById('letter-sign');
+
+  if (playButton) {
+    playButton.textContent = 'Done';
+    playButton.disabled = true;
+  }
+
+  if (progressBar) progressBar.style.width = '100%';
+  if (cursor) cursor.classList.add('done');
+  if (letterSign) letterSign.classList.add('visible');
 }
 document.querySelectorAll('a[href="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
 </script>
