@@ -72,11 +72,31 @@ nav {
 .nav-logo span { color: var(--red); }
 .nav-links { display: flex; align-items: center; gap: 0; }
 .nav-links a {
-  font-size: 13px; font-weight: 400;
-  color: var(--text-3); text-decoration: none;
-  padding: 0 14px; height: var(--nav-h);
-  display: flex; align-items: center;
-  transition: color 0.2s; letter-spacing: 0.01em;
+  position: relative;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-3);
+  text-decoration: none;
+  padding: 0 14px;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.nav-links a.nav-pill.active::after {
+  display: none;
 }
 .nav-links a:hover { color: var(--text); }
 .nav-links a.active { color: var(--text); font-weight: 500; }
