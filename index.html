@@ -598,6 +598,40 @@ nav {
 .sg-tag:hover { border-color: var(--red); color: var(--red); box-shadow: 0 2px 8px var(--red-soft); }
 .sg-tag.accent { background: var(--red-soft); border-color: rgba(197,23,24,0.15); color: var(--red); }
 
+/* PROFILE — sections sensibilité */
+.sensibility-block { max-width: 760px; margin: 0 auto; text-align: center; padding: 0 40px; }
+.sensibility-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 38px); font-weight: 400; font-style: italic;
+  line-height: 1.35; color: var(--text); letter-spacing: -0.015em; margin-bottom: 32px;
+}
+.sensibility-quote em { color: var(--red); font-style: normal; }
+.sensibility-body { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--text-3); max-width: 600px; margin: 0 auto; }
+
+.worlds-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 2px; margin-top: 64px; border-radius: var(--r-xl); overflow: hidden;
+}
+.world-card { position: relative; overflow: hidden; cursor: default; aspect-ratio: 3/4; background: #1a1a1a; }
+.world-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease), filter 0.6s var(--ease); filter: grayscale(20%) brightness(0.75); }
+.world-card:hover .world-img { transform: scale(1.07); filter: grayscale(0%) brightness(0.60); }
+.world-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.18) 55%, rgba(0,0,0,0) 100%); }
+.world-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px 24px; transform: translateY(8px); transition: transform 0.4s var(--ease); }
+.world-card:hover .world-content { transform: translateY(0); }
+.world-num { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
+.world-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: #fff; margin-bottom: 8px; line-height: 1.15; }
+.world-phrase { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.6; opacity: 0; transform: translateY(6px); transition: opacity 0.35s var(--ease) 0.05s, transform 0.35s var(--ease) 0.05s; }
+.world-card:hover .world-phrase { opacity: 1; transform: translateY(0); }
+.wfb-1 { background: linear-gradient(160deg,#1a1614 0%,#2d2018 100%); }
+.wfb-2 { background: linear-gradient(160deg,#141618 0%,#18202a 100%); }
+.wfb-3 { background: linear-gradient(160deg,#141618 0%,#18201e 100%); }
+.wfb-4 { background: linear-gradient(160deg,#161414 0%,#221a16 100%); }
+.world-fb-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-60%); font-size: 64px; opacity: 0.10; user-select: none; transition: opacity 0.4s; }
+.world-card:hover .world-fb-icon { opacity: 0.05; }
+
+@media (max-width: 960px) { .worlds-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 480px) { .worlds-grid { grid-template-columns: 1fr; } .sensibility-block { padding: 0; } }
+   
 /* ════════════════════════════════════════════════
    LETTER
 ════════════════════════════════════════════════ */
@@ -1511,121 +1545,164 @@ footer a:hover { color: var(--red); }
 <!-- ════════════════════════════════════════════════════════
      PROFILE
 ════════════════════════════════════════════════════════ -->
-<div class="page" id="page-profile">
-
 <section class="section">
   <div class="label">Career at Symrise</div>
   <h2 class="display profile-heading">A journey built<br><em>from within.</em></h2>
   <p class="body-lg profile-intro">
     Four years of growing contribution to how Symrise communicates — from business unit support to broader corporate communication projects, visual systems and strategic storytelling.
   </p>
-     
+
   <div class="tl">
-     <div class="tl-entry now">
-  <div class="card tl-card">
-    <div class="tl-year">2024 — Present</div>
-    <div class="tl-role">Internal Communications Officer</div>
-    <div class="tl-co">Taste, Nutrition &amp; Health Segment · Permanent role</div>
-    <p class="tl-desc">
-      Since moving into a permanent role, my scope has increasingly expanded toward broader Corporate Communications projects, combining visual design, internal communication strategy and platform thinking. I contribute to initiatives such as the Media Center relaunch, Core Values communication, Circular Economy storytelling, Screen Network governance, the 2027 Corporate Calendar concept and corporate editorial materials — with a focus on clarity, consistency and scalable visual systems.
+    <div class="tl-entry now">
+      <div class="card tl-card">
+        <div class="tl-year">2024 — Present</div>
+        <div class="tl-role">Internal Communications Officer</div>
+        <div class="tl-co">Taste, Nutrition &amp; Health Segment · Permanent role</div>
+        <p class="tl-desc">Since moving into a permanent role, my scope has increasingly expanded toward broader Corporate Communications projects, combining visual design, internal communication strategy and platform thinking. I contribute to initiatives such as the Media Center relaunch, Core Values communication, Circular Economy storytelling, Screen Network governance, the 2027 Corporate Calendar concept and corporate editorial materials — with a focus on clarity, consistency and scalable visual systems.</p>
+      </div>
+    </div>
+    <div class="tl-entry">
+      <div class="card tl-card">
+        <div class="tl-year">2023 — 2024</div>
+        <div class="tl-role">Junior Internal Communications Officer</div>
+        <div class="tl-co">Taste, Nutrition &amp; Health Segment · Fixed-term contract</div>
+        <p class="tl-desc">Leading visual communication initiatives across internal platforms, digital signage, editorial design and asset management. Driving the Media Center relaunch, Screen Network governance and the visual concept for the 2027 Corporate Calendar. Developing templates and design systems that support consistent communication at scale.</p>
+      </div>
+    </div>
+    <div class="tl-entry">
+      <div class="card tl-card">
+        <div class="tl-year">2022 — 2023</div>
+        <div class="tl-role">Junior Internal Communications Officer</div>
+        <div class="tl-co">Taste, Nutrition &amp; Health Segment · 1 year apprenticeship</div>
+        <p class="tl-desc">Supported the development and deployment of the TN&amp;H segment branding, helping translate Symrise's visual identity across multiple sites and touchpoints. Contributed actively to the opening of the Rennes Campus through local on-site branding initiatives, and helped establish the Rennes screen network with dedicated templates and guidelines for consistent digital signage.</p>
+      </div>
+    </div>
+    <div class="tl-entry">
+      <div class="card tl-card">
+        <div class="tl-year">2022</div>
+        <div class="tl-role">Communications Assistant</div>
+        <div class="tl-co">Aqua Feed BU · 6-month internship</div>
+        <p class="tl-desc">Supported the development and deployment of the digital strategy for Symrise Aqua Feed. Created print communication materials for sales teams and contributed to the co-creation and follow-up of the media plan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-white">
+  <div style="text-align:center;margin-bottom:72px">
+    <div class="label" style="justify-content:center">Creative sensibility</div>
+    <h2 class="display" style="margin-bottom:0">A way of<br><em>looking.</em></h2>
+  </div>
+  <div class="sensibility-block">
+    <p class="sensibility-quote">
+      I have always been drawn to things that feel right<br>before they need to be <em>explained.</em>
+    </p>
+    <p class="sensibility-body">
+      A room where every object has its place. A scent that leaves a trace. A photograph that captures the right light. A dish where balance matters more than excess. A layout where hierarchy suddenly makes everything clear.<br><br>
+      They shape the way I care about clarity, rhythm and detail.
+    </p>
+    <p class="sensibility-body" style="margin-top:32px;font-size:14px;color:var(--text-4);font-style:italic;letter-spacing:0.01em">
+      I like the idea of design having a quiet sillage — something subtle, but memorable.
     </p>
   </div>
-</div>
-      <div class="tl-entry">
-        <div class="card tl-card">
-          <div class="tl-year">2023 — 2024</div>
-          <div class="tl-role">Junion Internal Communications Officer</div>
-          <div class="tl-co">Taste, Nutrition &amp; Health Segment · Fixed-term contract</div>
-          <p class="tl-desc">Leading visual communication initiatives across internal platforms, digital signage, editorial design and asset management. Driving the Media Center relaunch, Screen Network governance and the visual concept for the 2027 Corporate Calendar. Developing templates and design systems that support consistent communication at scale.</p>
-        </div>
-      </div>
-      <div class="tl-entry">
-        <div class="card tl-card">
-          <div class="tl-year">2022 — 2023</div>
-          <div class="tl-role">Junior Internal Communications Officer</div>
-          <div class="tl-co">Taste, Nutrition &amp; Health Segment · 1 year apprenticeship</div>
-          <p class="tl-desc">Supported the development and deployment of the TN&amp;H segment branding, helping translate Symrise's visual identity across multiple sites and touchpoints. Contributed actively to the opening of the Rennes Campus through local on-site branding initiatives, and helped establish the Rennes screen network with dedicated templates and guidelines for consistent digital signage.</p>
-        </div>
-      </div>
-      <div class="tl-entry">
-        <div class="card tl-card">
-          <div class="tl-year">2022</div>
-          <div class="tl-role">Communications Assistant</div>
-          <div class="tl-co">Aqua Feed BU · 6-month internship</div>
-          <p class="tl-desc">Supported the development and deployment of the digital strategy for Symrise Aqua Feed. Created print communication materials for sales teams and contributed to the co-creation and follow-up of the media plan.</p>
-        </div>
+</section>
+
+<section class="section">
+  <div class="label">The worlds that shape my eye</div>
+  <h2 class="display" style="margin-bottom:12px">What feeds<br><em>my creativity.</em></h2>
+  <p class="body-md" style="max-width:480px">
+    My inspiration doesn't only come from design. It comes from the way I look at spaces, scents, images and everyday rituals.
+  </p>
+
+  <div class="worlds-grid">
+    <div class="world-card wfb-1">
+      <img class="world-img" src="images/world-deco.jpg" alt="Interior design" onerror="this.style.display='none'">
+      <div class="world-fb-icon" aria-hidden="true">⬡</div>
+      <div class="world-overlay"></div>
+      <div class="world-content">
+        <div class="world-num">01</div>
+        <div class="world-title">Interior design</div>
+        <div class="world-phrase">Proportion, atmosphere and the role of silence. Spaces that breathe without needing to explain themselves.</div>
       </div>
     </div>
-  </section>
-
-  <section class="section-white">
-    <div class="label">Skills & tools</div>
-    <h2 class="display" style="margin-bottom:56px;">How I operate.</h2>
-
-    <div class="skills-wrap">
-      <div>
-        <div>
-          <div class="sg-title">Creative & Visual Design</div>
-          <div class="sg-tags">
-            <span class="sg-tag accent">Visual storytelling</span>
-            <span class="sg-tag accent">Art direction</span>
-            <span class="sg-tag accent">Layout systems</span>
-            <span class="sg-tag accent">Editorial design</span>
-            <span class="sg-tag accent">Presentation design</span>
-            <span class="sg-tag accent">Digital-first design</span>
-            <span class="sg-tag accent">Brand consistency</span>
-          </div>
-        </div>
-        <div>
-          <div class="sg-title">Corporate Communications</div>
-          <div class="sg-tags">
-            <span class="sg-tag">Internal communications</span>
-            <span class="sg-tag">Message hierarchy</span>
-            <span class="sg-tag">Cross-functional collaboration</span>
-            <span class="sg-tag">Stakeholder support</span>
-            <span class="sg-tag">Employee engagement</span>
-            <span class="sg-tag">Communication planning</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div>
-          <div class="sg-title">Tools</div>
-          <div class="sg-tags">
-            <span class="sg-tag">Adobe InDesign</span>
-            <span class="sg-tag">Illustrator</span>
-            <span class="sg-tag">Photoshop</span>
-            <span class="sg-tag">Figma</span>
-            <span class="sg-tag">PowerPoint</span>
-            <span class="sg-tag">SharePoint</span>
-            <span class="sg-tag">DAM / Celum</span>
-            <span class="sg-tag">Comeen</span>
-            <span class="sg-tag">Microsoft 365</span>
-          </div>
-        </div>
-        <div>
-          <div class="sg-title">Ways of working</div>
-          <div class="sg-tags">
-            <span class="sg-tag">Creative ownership</span>
-            <span class="sg-tag">Precision</span>
-            <span class="sg-tag">Structure</span>
-            <span class="sg-tag">Autonomy</span>
-            <span class="sg-tag">Collaborative leadership</span>
-            <span class="sg-tag">Attention to detail</span>
-            <span class="sg-tag">Strategic thinking</span>
-          </div>
-        </div>
+    <div class="world-card wfb-2">
+      <img class="world-img" src="images/world-perfume.jpg" alt="Perfumery" onerror="this.style.display='none'">
+      <div class="world-fb-icon" aria-hidden="true">◎</div>
+      <div class="world-overlay"></div>
+      <div class="world-content">
+        <div class="world-num">02</div>
+        <div class="world-title">Perfumery</div>
+        <div class="world-phrase">Emotion, memory and the trace something leaves behind. The strongest impressions are rarely the loudest.</div>
       </div>
     </div>
-  </section>
+    <div class="world-card wfb-3">
+      <img class="world-img" src="images/world-photo.jpg" alt="Photography" onerror="this.style.display='none'">
+      <div class="world-fb-icon" aria-hidden="true">◻</div>
+      <div class="world-overlay"></div>
+      <div class="world-content">
+        <div class="world-num">03</div>
+        <div class="world-title">Photography</div>
+        <div class="world-phrase">Light, framing and the art of noticing. Not what to add — but what to keep.</div>
+      </div>
+    </div>
+    <div class="world-card wfb-4">
+      <img class="world-img" src="images/world-cooking.jpg" alt="Cooking" onerror="this.style.display='none'">
+      <div class="world-fb-icon" aria-hidden="true">◑</div>
+      <div class="world-overlay"></div>
+      <div class="world-content">
+        <div class="world-num">04</div>
+        <div class="world-title">Cooking</div>
+        <div class="world-phrase">Balance, generosity and knowing when to stop. Not unlike design — the right contrast, the right rhythm.</div>
+      </div>
+    </div>
+  </div>
 
-  <footer>
-    <span class="f-logo">PMMC</span>
-    <span>Built as a candidacy · Designed with intent · Refined with AI</span>
-    <a href="#" onclick="go('contact')">Contact →</a>
-  </footer>
-</div>
+  <p class="body-md" style="max-width:600px;margin:48px auto 0;text-align:center;font-style:italic;color:var(--text-3)">
+    Together, these worlds shape the creative judgment I bring to communication — making things feel clear, considered and memorable.
+  </p>
+</section>
 
+<section class="section-white">
+  <div class="label">Skills &amp; tools</div>
+  <h2 class="display" style="margin-bottom:56px;">How I operate.</h2>
+  <div class="skills-wrap">
+    <div>
+      <div class="sg-title">Creative &amp; Visual Design</div>
+      <div class="sg-tags">
+        <span class="sg-tag accent">Visual storytelling</span>
+        <span class="sg-tag accent">Art direction</span>
+        <span class="sg-tag accent">Layout systems</span>
+        <span class="sg-tag accent">Editorial design</span>
+        <span class="sg-tag accent">Presentation design</span>
+        <span class="sg-tag accent">Digital-first design</span>
+        <span class="sg-tag accent">Brand consistency</span>
+      </div>
+      <div class="sg-title">Corporate Communications</div>
+      <div class="sg-tags">
+        <span class="sg-tag">Internal communications</span>
+        <span class="sg-tag">Message hierarchy</span>
+        <span class="sg-tag">Cross-functional collaboration</span>
+        <span class="sg-tag">Stakeholder support</span>
+        <span class="sg-tag">Employee engagement</span>
+        <span class="sg-tag">Communication planning</span>
+      </div>
+    </div>
+    <div>
+      <div class="sg-title">Tools</div>
+      <div class="sg-tags">
+        <span class="sg-tag">Adobe InDesign</span>
+        <span class="sg-tag">Illustrator</span>
+        <span class="sg-tag">Photoshop</span>
+        <span class="sg-tag">Figma</span>
+        <span class="sg-tag">PowerPoint</span>
+        <span class="sg-tag">SharePoint</span>
+        <span class="sg-tag">DAM / Celum</span>
+        <span class="sg-tag">Comeen</span>
+        <span class="sg-tag">Microsoft 365</span>
+      </div>
+      <div class="sg-title">Ways of working</div>
+      <div class="sg-tags">
+        <span class="sg-tag">Creative ownership</span
 <!-- ════════════════════════════════════════════════════════
      LETTER
 ════════════════════════════════════════════════════════ -->
