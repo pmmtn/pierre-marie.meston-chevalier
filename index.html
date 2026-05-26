@@ -306,6 +306,18 @@ nav {
   height: 180px; width: 100%;
   position: relative; overflow: hidden; flex-shrink: 0;
 }
+   .work-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s var(--ease);
+}
+
+.work-card:hover .work-img {
+  transform: scale(1.04);
+}
 .wv-1 { background: linear-gradient(135deg, #ffeaea 0%, #ffd0d0 50%, #ffe4e4 100%); }
 .wv-2 { background: linear-gradient(135deg, #fff0e8 0%, #ffd8cc 50%, #ffe8e0 100%); }
 .wv-3 { background: linear-gradient(135deg, #f0f4ff 0%, #dde5ff 50%, #e8edff 100%); }
