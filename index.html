@@ -2047,37 +2047,6 @@ function typeNext() {
   }
 }
 
-  const seg = allSegments[currentSeg];
-  const el = document.getElementById(seg.target);
-
-  if (!el) return;
-
-  if (currentChar === 0) {
-    if (cursor) cursor.remove();
-    cursor = buildCursor();
-    cursor.classList.add('visible');
-    el.appendChild(cursor);
-  }
-
-  const textNode = document.createTextNode(seg.text[currentChar]);
-  el.insertBefore(textNode, cursor);
-  currentChar++;
-
-  const progressBar = document.getElementById('progress-bar');
-  if (progressBar) {
-    progressBar.style.width = `${(charsTyped() / totalChars()) * 100}%`;
-  }
-
-  if (currentChar >= seg.text.length) {
-    currentSeg++;
-    currentChar = 0;
-
-    timeoutId = setTimeout(typeNext, delay * 10);
-  } else {
-    timeoutId = setTimeout(typeNext, delay);
-  }
-}
-
 function finishLetter() {
   playing = false;
   done = true;
