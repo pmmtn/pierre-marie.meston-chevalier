@@ -135,8 +135,20 @@ nav {
   font-size: 14px; font-weight: 500; text-decoration: none;
   cursor: pointer; border: none; transition: all 0.2s var(--ease);
 }
-.btn-red   { background: var(--red); color: #fff; }
-.btn-red:hover { opacity: 0.88; transform: scale(1.02); box-shadow: 0 8px 24px var(--red-glow); }
+.btn-outline-red {
+  background: var(--bg);
+  color: var(--red);
+  border: 1.5px solid var(--red);
+}
+
+.btn-outline-red:hover {
+  background: #f7f7f9;
+  color: var(--red);
+  border-color: var(--red);
+  opacity: 1;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 38px rgba(197, 23, 24, 0.18);
+}
 .btn-ghost { background: rgba(0,0,0,0.05); color: var(--text); }
 .btn-ghost:hover { background: rgba(0,0,0,0.09); transform: scale(1.02); }
 .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border-2); }
@@ -1107,9 +1119,10 @@ footer a:hover { color: var(--red); }
         <span class="hero-pill">Digital Platforms</span>
         <span class="hero-pill">Brand Consistency</span>
       </div>
-      <div class="hero-cta hero-cta-single">
-        <a class="btn btn-red hero-main-cta hero-primary-cta" href="#" onclick="go('role')">View role fit →</a>
-      </div>
+<div class="hero-cta">
+  <a class="btn btn-red hero-main-cta hero-primary-cta" href="#" onclick="go('role')">View role fit →</a>
+  <a class="btn btn-outline-red hero-main-cta hero-primary-cta" href="#" onclick="go('letter')">Read my intent →</a>
+</div>
     </div>
 
     <div class="memoji-wrap">
