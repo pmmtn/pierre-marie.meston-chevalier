@@ -674,8 +674,9 @@ nav {
 .wfb-2 { background: linear-gradient(160deg,#141618 0%,#18202a 100%); }
 .wfb-3 { background: linear-gradient(160deg,#141618 0%,#18201e 100%); }
 .wfb-4 { background: linear-gradient(160deg,#161414 0%,#221a16 100%); }
-.world-fb-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-60%); font-size: 64px; opacity: 0.10; user-select: none; transition: opacity 0.4s; }
-.world-card:hover .world-fb-icon { opacity: 0.05; }
+.world-fb-icon {
+  display: none;
+}
 
 @media (max-width: 960px) { .worlds-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 480px) { .worlds-grid { grid-template-columns: 1fr; } .sensibility-block { padding: 0; } }
