@@ -646,6 +646,15 @@ filter: blur(22px);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
   cursor: default; display: flex; flex-direction: column;
 }
+
+.work-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.work-card-link:visited {
+  color: inherit;
+}
 .work-card:hover {
   transform: translateY(-6px) scale(1.01);
   box-shadow: 0 24px 64px rgba(0,0,0,0.11);
@@ -856,7 +865,28 @@ filter: blur(22px);
 .tl-card { border-radius: var(--r); padding: 28px 32px; }
 .tl-year { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
 .tl-role { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
-.tl-co { font-size: 13px; color: var(--text-4); margin-bottom: 12px; }
+.tl-co {
+  font-size: 13px;
+  color: var(--text-4);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tl-contract {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--red-soft);
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
 .tl-desc { font-size: 14px; color: var(--text-3); line-height: 1.75; font-weight: 300; }
 
 .skills-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 80px; }
@@ -1615,8 +1645,8 @@ footer a:hover { color: var(--red); }
           <div class="work-cat">DAM / Digital Asset Management</div>
           <div class="work-title">Symrise Library </div>
           <p class="work-desc">
-            Restructuring Symrise’s DAM and Media Center experience to make brand assets easier to find, understand and use — from frontend logic to naming conventions, content structure and adoption.
-          </p>
+           Restructuring Symrise’s DAM (Media Center) experience with a stronger frontend logic — improving information architecture, navigation, naming conventions and user adoption to make brand assets easier to find, understand and use.
+         </p>
           <div class="work-tags">
             <span class="w-tag">Information architecture</span>
             <span class="w-tag">UX / UI</span>
@@ -1626,45 +1656,45 @@ footer a:hover { color: var(--red); }
         </div>
       </div>
 
-      <!-- 02 — CORE VALUES -->
-      <div class="work-card">
-        <div class="work-card-visual">
-          <img src="images/core-values.jpg" alt="Core Values Visual Direction" class="work-img">
-        </div>
-        <div class="work-card-body">
-          <div class="work-cat">Art Direction</div>
-          <div class="work-title">Core Values — Visual Direction</div>
-          <p class="work-desc">
-            Developing a visual direction to bring Symrise’s Core Values to life across internal communication materials — translating abstract principles into a more emotional, memorable and coherent visual system.
-          </p>
-          <div class="work-tags">
-            <span class="w-tag">Art direction</span>
-            <span class="w-tag">Values communication</span>
-            <span class="w-tag">Visual system</span>
-            <span class="w-tag">Internal engagement</span>
-          </div>
-        </div>
-      </div>
+     <!-- 02 — CORE VALUES -->
+<a class="work-card work-card-link" href="https://www.symrise.com/our-company/this-is-us/" target="_blank" rel="noopener">
+  <div class="work-card-visual">
+    <img src="images/core-values.jpg" alt="Core Values Visual Direction" class="work-img">
+  </div>
+  <div class="work-card-body">
+    <div class="work-cat">Art Direction</div>
+    <div class="work-title">Core Values — Visual Direction</div>
+    <p class="work-desc">
+      Developing a visual direction to bring Symrise’s Core Values to life across internal communication materials — translating abstract principles into a more emotional, memorable and coherent visual system.
+    </p>
+    <div class="work-tags">
+      <span class="w-tag">Art direction</span>
+      <span class="w-tag">Values communication</span>
+      <span class="w-tag">Visual system</span>
+      <span class="w-tag">Internal engagement</span>
+    </div>
+  </div>
+</a>
 
-<!-- 03 — DOCUMENTS + TEMPLATES -->
-      <div class="work-card">
-        <div class="work-card-visual">
-          <img src="images/documents-templates.jpg" alt="Documents Templates and Brand Consistency" class="work-img">
-        </div>
-        <div class="work-card-body">
-          <div class="work-cat">Editorial Design & Brand Systems</div>
-          <div class="work-title">Documents, Templates & Brand Consistency</div>
-          <p class="work-desc">
-            Designing editorial documents, executive materials, templates and visual guidelines that help teams communicate with more consistency, structure and quality — making good design easier to apply at scale.
-          </p>
-          <div class="work-tags">
-            <span class="w-tag">Editorial design</span>
-            <span class="w-tag">Templates</span>
-            <span class="w-tag">Visual guidelines</span>
-            <span class="w-tag">Brand consistency</span>
-          </div>
-        </div>
-      </div>
+<!-- 03 — ONE SYM / ONE SYMRISE -->
+<a class="work-card work-card-link" href="https://symriseag.sharepoint.com/sites/ONESYM-HUB" target="_blank" rel="noopener">
+  <div class="work-card-visual">
+    <img src="images/one-sym-hub.jpg" alt="ONE SYM Hub" class="work-img">
+  </div>
+  <div class="work-card-body">
+    <div class="work-cat">Internal Platform & Brand Narrative</div>
+    <div class="work-title">ONE SYM / ONE Symrise Hub</div>
+    <p class="work-desc">
+      Supporting the ONE SYM and ONE Symrise narrative by structuring a dedicated hub that centralizes key content, updates and resources — helping employees better understand the initiative, follow its progress and connect with a shared Symrise story.
+    </p>
+    <div class="work-tags">
+      <span class="w-tag">Internal platform</span>
+      <span class="w-tag">Content structure</span>
+      <span class="w-tag">Editorial UX</span>
+      <span class="w-tag">ONE Symrise</span>
+    </div>
+  </div>
+</a>
 
       <!-- 04 — SCREEN NETWORK -->
       <div class="work-card">
@@ -1674,15 +1704,16 @@ footer a:hover { color: var(--red); }
         <div class="work-card-body">
           <div class="work-cat">Internal Communications</div>
           <div class="work-title">Screen Network Governance</div>
-          <p class="work-desc">
-            Establishing a clearer governance model for Symrise’s internal screen network — developing templates, editorial standards and workflows to support consistent communication across sites.
-          </p>
-          <div class="work-tags">
-            <span class="w-tag">Governance</span>
-            <span class="w-tag">Template design</span>
-            <span class="w-tag">Digital signage</span>
-            <span class="w-tag">Content standards</span>
-          </div>
+            <p class="work-desc">
+              Creating and expanding an internal screen network across several French sites — developing templates, editorial standards and workflows, while training local teams to publish content more autonomously and consistently.
+            </p>
+            <div class="work-tags">
+           <span class="w-tag">Network rollout</span>
+           <span class="w-tag">Templates & guidelines</span>
+            <span class="w-tag">Training</span>
+           <span class="w-tag">Digital signage</span>
+           <span class="w-tag">Governance</span>
+         </div>
         </div>
       </div>
 
@@ -1853,10 +1884,9 @@ footer a:hover { color: var(--red); }
       <div class="strength-icon">
         <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
-      <div class="strength-h">Digital platforms</div>
-      <p class="strength-p">Designing and improving internal touchpoints — asset libraries, screen networks, hubs and intranet spaces — with a focus on clarity, access and adoption.</p>
-    </div>
-
+      <div class="strength-h">Platform UX & digital systems</div>
+      <p class="strength-p">Designing internal touchpoints — asset libraries, hubs, screen networks and intranet spaces — with a focus on navigation, clarity, access and adoption.</p>
+      </div>
     <div class="strength-item">
       <div class="strength-icon">
         <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
@@ -1892,15 +1922,21 @@ footer a:hover { color: var(--red); }
       <div class="card tl-card">
         <div class="tl-year">2024 — Present</div>
         <div class="tl-role">Internal Communications Officer</div>
-        <div class="tl-co">Taste, Nutrition &amp; Health Segment · Permanent role</div>
-        <p class="tl-desc">Since moving into a permanent role, my scope has increasingly expanded toward broader Corporate Communications projects — from the Media Center relaunch and Core Values communication to Circular Economy storytelling, Screen Network governance, the 2027 Corporate Calendar concept and corporate editorial materials. Across these initiatives, my focus remains the same: clarity, consistency and scalable visual systems.</p>
+         <div class="tl-co">
+           <span>Taste, Nutrition &amp; Health Segment</span>
+           <span class="tl-contract">Permanent role</span>
+         </div>        
+         <p class="tl-desc">Since moving into a permanent role, my scope has increasingly expanded toward broader Corporate Communications projects — from the Media Center relaunch and Core Values communication to Circular Economy storytelling, Screen Network governance, the 2027 Corporate Calendar concept and corporate editorial materials. Across these initiatives, my focus remains the same: clarity, consistency and scalable visual systems.</p>
       </div>
     </div>
     <div class="tl-entry">
       <div class="card tl-card">
         <div class="tl-year">2023 — 2024</div>
         <div class="tl-role">Junior Internal Communications Officer</div>
-        <div class="tl-co">Taste, Nutrition &amp; Health Segment · Fixed-term contract</div>
+        <div class="tl-co">
+           <span>Taste, Nutrition &amp; Health Segment</span>
+           <span class="tl-contract">Fixed-term contract</span>
+         </div>
         <p class="tl-desc">Leading visual communication initiatives across internal platforms, digital signage, editorial design and asset management. Driving the Media Center relaunch, Screen Network governance and the visual concept for the 2027 Corporate Calendar. Developing templates and design systems that support consistent communication at scale.</p>
       </div>
     </div>
@@ -1908,7 +1944,10 @@ footer a:hover { color: var(--red); }
       <div class="card tl-card">
         <div class="tl-year">2022 — 2023</div>
         <div class="tl-role">Junior Internal Communications Officer</div>
-        <div class="tl-co">Taste, Nutrition &amp; Health Segment · 1 year apprenticeship</div>
+        <div class="tl-co">
+  <span>Taste, Nutrition &amp; Health Segment</span>
+  <span class="tl-contract">Apprenticeship</span>
+</div>
         <p class="tl-desc">Supported the development and deployment of the TN&amp;H segment branding, helping translate Symrise's visual identity across multiple sites and touchpoints. Contributed actively to the opening of the Rennes Campus through local on-site branding initiatives, and helped establish the Rennes screen network with dedicated templates and guidelines for consistent digital signage.</p>
       </div>
     </div>
@@ -1916,7 +1955,10 @@ footer a:hover { color: var(--red); }
       <div class="card tl-card">
         <div class="tl-year">2022</div>
         <div class="tl-role">Communications Assistant</div>
-        <div class="tl-co">Aqua Feed BU · 6-month internship</div>
+        <div class="tl-co">
+  <span>Aqua Feed BU</span>
+  <span class="tl-contract">Internship</span>
+</div>
         <p class="tl-desc">Supported the development and deployment of the digital strategy for Symrise Aqua Feed. Created print communication materials for sales teams and contributed to the co-creation and follow-up of the media plan.</p>
       </div>
     </div>
@@ -1981,21 +2023,22 @@ footer a:hover { color: var(--red); }
         <div class="world-phrase">Light, framing and the art of noticing. Not what to add — but what to keep.</div>
       </div>
     </div>
-    <div class="world-card wfb-4">
-      <img class="world-img" src="images/world-cooking.jpg" alt="Cooking" onerror="this.style.display='none'">
-      <div class="world-fb-icon" aria-hidden="true">◑</div>
-      <div class="world-overlay"></div>
-      <div class="world-content">
-        <div class="world-num">04</div>
-        <div class="world-title">Cooking</div>
-        <div class="world-phrase">Balance, generosity and knowing when to stop. Not unlike design — the right contrast, the right rhythm.</div>
+      <div class="world-card wfb-4">
+        <img class="world-img" src="images/world-travel.jpg" alt="Travels in Brittany" onerror="this.style.display='none'">
+        <div class="world-fb-icon" aria-hidden="true">◑</div>
+        <div class="world-overlay"></div>
+        <div class="world-content">
+          <div class="world-num">04</div>
+          <div class="world-title">Travels</div>
+          <div class="world-phrase">
+            Changing environment, slowing down and making space for ideas to wander. Often in Brittany, inspiration comes from stepping away — and returning with clearer intent.
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <p class="body-md" style="max-width:600px;margin:48px auto 0;text-align:center;font-style:italic;color:var(--text-3)">
-    Together, these worlds shape the creative judgment I bring to communication — making things feel clear, considered and memorable.
-  </p>
+<p class="body-md" style="max-width:680px;margin:48px auto 0;text-align:center;font-style:italic;color:var(--text-3)">
+  Together, these worlds shape the creative judgment I bring to communication — making things feel clear, considered and memorable. For me, inspiration often comes from changing my environment, slowing down the pace and creating space for ideas to wander. Taking time to escape is not a break from my work — it is part of what makes it better.
+</p>
 </section>
 
 <section class="section-white">
@@ -2007,10 +2050,11 @@ footer a:hover { color: var(--red); }
       <div class="sg-tags">
         <span class="sg-tag accent">Visual storytelling</span>
         <span class="sg-tag accent">Art direction</span>
-        <span class="sg-tag accent">Layout systems</span>
-        <span class="sg-tag accent">Editorial design</span>
+         <span class="sg-tag accent">Editorial design</span>
         <span class="sg-tag accent">Presentation design</span>
         <span class="sg-tag accent">Digital-first design</span>
+         <span class="sg-tag accent">UX thinking</span>
+         <span class="sg-tag accent">Interface clarity</span>
         <span class="sg-tag accent">Brand consistency</span>
       </div>
       <div class="sg-title">Corporate Communications</div>
