@@ -616,22 +616,46 @@ nav {
 .world-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease), filter 0.6s var(--ease); filter: grayscale(20%) brightness(0.75); }
 .world-card:hover .world-img { transform: scale(1.07); filter: grayscale(0%) brightness(0.60); }
 .world-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.18) 55%, rgba(0,0,0,0) 100%); }
-.world-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px 24px; transform: translateY(8px); transition: transform 0.4s var(--ease); }
-.world-card:hover .world-content { transform: translateY(0); }
-.world-num { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
+.world-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 58px;
+  padding: 0 28px;
+  transform: none;
+  transition: transform 0.4s var(--ease);
+}
+
+.world-card:hover .world-content {
+  transform: translateY(-6px);
+}
+
+.world-num {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
 .world-title {
+  display: block;
   font-family: 'Playfair Display', serif;
   font-size: 22px;
   font-weight: 400;
   color: #fff;
-  margin-bottom: 8px;
   line-height: 1.15;
-  height: 52px;
-  display: flex;
-  align-items: flex-end;
+  margin: 0;
 }
 
 .world-phrase {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  top: calc(100% + 12px);
   font-size: 12px;
   font-weight: 300;
   color: rgba(255,255,255,0.72);
@@ -639,7 +663,6 @@ nav {
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.35s var(--ease) 0.05s, transform 0.35s var(--ease) 0.05s;
-  max-width: 92%;
   pointer-events: none;
 }
 
