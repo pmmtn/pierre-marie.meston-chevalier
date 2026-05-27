@@ -641,10 +641,16 @@ nav {
   color: rgba(255,255,255,0.72);
   line-height: 1.6;
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(8px);
   transition: opacity 0.35s var(--ease) 0.05s, transform 0.35s var(--ease) 0.05s;
+  max-width: 92%;
+  pointer-events: none;
 }
-.world-card:hover .world-phrase { opacity: 1; transform: translateY(0); }
+
+.world-card:hover .world-phrase {
+  opacity: 1;
+  transform: translateY(0);
+}
 .wfb-1 { background: linear-gradient(160deg,#1a1614 0%,#2d2018 100%); }
 .wfb-2 { background: linear-gradient(160deg,#141618 0%,#18202a 100%); }
 .wfb-3 { background: linear-gradient(160deg,#141618 0%,#18201e 100%); }
