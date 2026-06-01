@@ -635,6 +635,44 @@ filter: blur(22px);
 .bring-h { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
 .bring-p { font-size: 14px; font-weight: 300; color: var(--text-3); line-height: 1.75; }
 
+
+/* Compact profile additions */
+.contract-pill {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--red-soft);
+  border: 1px solid rgba(197,23,24,0.14);
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-style: italic;
+  vertical-align: middle;
+}
+
+.profile-strengths {
+  margin-top: 0;
+}
+
+.profile-strengths .strength-item {
+  padding: 28px 26px;
+}
+
+.work-card-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.work-card-link:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
+}
+
 /* ════════════════════════════════════════════════
    WORK CARDS
 ════════════════════════════════════════════════ */
@@ -645,15 +683,6 @@ filter: blur(22px);
   background: var(--bg-white); border: 1px solid var(--border);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
   cursor: default; display: flex; flex-direction: column;
-}
-
-.work-card-link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.work-card-link:visited {
-  color: inherit;
 }
 .work-card:hover {
   transform: translateY(-6px) scale(1.01);
@@ -865,28 +894,7 @@ filter: blur(22px);
 .tl-card { border-radius: var(--r); padding: 28px 32px; }
 .tl-year { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
 .tl-role { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
-.tl-co {
-  font-size: 13px;
-  color: var(--text-4);
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.tl-contract {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px 9px;
-  border-radius: 999px;
-  background: var(--red-soft);
-  color: var(--red);
-  font-size: 11px;
-  font-weight: 500;
-  font-style: italic;
-  letter-spacing: 0.01em;
-}
+.tl-co { font-size: 13px; color: var(--text-4); margin-bottom: 12px; }
 .tl-desc { font-size: 14px; color: var(--text-3); line-height: 1.75; font-weight: 300; }
 
 .skills-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 80px; }
@@ -988,6 +996,111 @@ filter: blur(22px);
 
 @media (max-width: 960px) { .worlds-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 480px) { .worlds-grid { grid-template-columns: 1fr; } .sensibility-block { padding: 0; } }
+
+/* Creative sensibility compact split layout */
+.creative-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-top: 8px;
+}
+.creative-copy {
+  max-width: 100%;
+}
+.creative-quote-inline {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin-top: 16px;
+  margin-bottom: 14px;
+}
+.creative-layout .worlds-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 140px);
+  margin-top: 0;
+  gap: 10px;
+  overflow: visible;
+}
+.creative-layout .world-card {
+  aspect-ratio: unset;
+  height: 140px;
+  border-radius: 18px;
+}
+.creative-layout .world-content {
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+}
+.creative-layout .world-num {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  margin-bottom: 5px;
+  color: rgba(255,255,255,0.55);
+  transition: opacity 0.8s ease-in-out, filter 0.8s ease-in-out;
+}
+
+.creative-layout .world-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #fff;
+  transition: opacity 0.8s ease-in-out, filter 0.8s ease-in-out;
+}
+
+.creative-layout .world-phrase {
+  display: block;
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.55;
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.8s ease-in-out, filter 0.8s ease-in-out;
+  pointer-events: none;
+  transform: none;
+}
+
+.creative-layout .world-card:hover .world-num,
+.creative-layout .world-card:hover .world-title {
+  opacity: 0;
+  filter: blur(8px);
+}
+
+.creative-layout .world-card:hover .world-phrase {
+  opacity: 1;
+  filter: blur(0px);
+}
+   
+@media (max-width: 1100px) {
+  .creative-layout { grid-template-columns: 1fr; gap: 32px; }
+  .creative-copy { max-width: 620px; }
+  .creative-layout .worlds-grid { grid-template-rows: auto; }
+  .creative-layout .world-card { height: 140px; }
+}
+@media (max-width: 560px) {
+  .creative-layout .worlds-grid { grid-template-columns: 1fr; }
+}
    
 /* ════════════════════════════════════════════════
    LETTER
@@ -1550,14 +1663,13 @@ footer a:hover { color: var(--red); }
 <!-- ═══════ NAV ═══════ -->
 <nav>
   <a class="nav-logo" href="#" onclick="go('home')">PMMC<span> ·</span></a>
- <div class="nav-links">
+  <div class="nav-links">
     <a href="#" onclick="go('home')" id="n-home" class="active nav-hide">Home</a>
-    <a href="#" onclick="go('role')" id="n-role" class="nav-hide">Why this role</a>
-    <a href="#" onclick="go('letter')" id="n-letter" class="nav-hide">Letter</a>
-    <a href="#" onclick="go('work')" id="n-work" class="nav-hide">Projects</a>
     <a href="#" onclick="go('profile')" id="n-profile" class="nav-hide">Profile</a>
+    <a href="#" onclick="go('work')" id="n-work" class="nav-hide">Projects</a>
+    <a href="#" onclick="go('letter')" id="n-letter" class="nav-hide">Letter</a>
     <a href="#" onclick="go('contact')" id="n-contact" class="nav-pill">Contact</a>
-</div>
+  </div>
 </nav>
 
 
@@ -1580,7 +1692,7 @@ footer a:hover { color: var(--red); }
       </h1>
 
       <div class="hero-cta animated-cta delay-3">
-        <a class="btn btn-red hero-main-cta hero-primary-cta" href="#" onclick="go('role')">View role fit →</a>
+        <a class="btn btn-red hero-main-cta hero-primary-cta" href="#" onclick="go('profile')">View role fit →</a>
         <a class="btn btn-outline-red hero-main-cta hero-primary-cta" href="#" onclick="go('letter')">Read my intent →</a>
       </div>
 
@@ -1614,214 +1726,59 @@ footer a:hover { color: var(--red); }
   <footer>
     <span class="f-logo">PMMC</span>
     <span>Built as a candidacy · Designed with intent · Refined with AI</span>
-    <a href="#" onclick="go('role')">Why this role →</a>
+    <a href="#" onclick="go('profile')">Why this role →</a>
   </footer>
 </div>
 
 
-<!-- ════════════════════════════════════════════════════════
-     WORK
-════════════════════════════════════════════════════════ -->
-<div class="page" id="page-work">
-  <section class="section">
-    <div class="label">Selected projects</div>
+<div class="page" id="page-profile">
+<section class="section">
+  <div class="label">Profile</div>
+  <h2 class="display profile-heading">A journey,<br><em>built from within.</em></h2>
+  <p class="body-lg profile-intro">
+    I have been growing within Symrise for more than four years, from BU communication support to broader Corporate Communications topics. This internal knowledge — of the organization, its platforms, its visual identity and its communication needs — is what makes this role feel like a natural next step.
+  </p>
 
-    <h2 class="display work-heading">
-      Selected work,<br><em>built for clarity.</em>
-    </h2>
-
-    <p class="body-lg" style="max-width:560px; margin-bottom:64px;">
-      A selection of projects showing how I turn communication needs into clearer systems, visuals and digital experiences.
-    </p>
-
-    <div class="work-grid">
-
-      <!-- 01 — SYMRISE LIBRARY -->
-      <div class="work-card">
-        <div class="work-card-visual">
-          <img src="images/media-center.jpg" alt="Media Center Relaunch" class="work-img">
-        </div>
-        <div class="work-card-body">
-          <div class="work-cat">DAM / Digital Asset Management</div>
-          <div class="work-title">Symrise Library </div>
-          <p class="work-desc">
-           Restructuring Symrise’s DAM (Media Center) experience with a stronger frontend logic — improving information architecture, navigation, naming conventions and user adoption to make brand assets easier to find, understand and use.
-         </p>
-          <div class="work-tags">
-            <span class="w-tag">Information architecture</span>
-            <span class="w-tag">UX / UI</span>
-            <span class="w-tag">Content structure</span>
-            <span class="w-tag">Asset adoption</span>
-          </div>
-        </div>
+  <div class="tl">
+    <div class="tl-entry now">
+      <div class="card tl-card">
+        <div class="tl-year">2024 — Present <span class="contract-pill">Permanent role</span></div>
+        <div class="tl-role">Internal Communications Officer</div>
+        <div class="tl-co">Corporate Communications · Taste, Nutrition &amp; Health Segment</div>
+        <p class="tl-desc">Since moving into a permanent role, my scope has expanded toward broader Corporate Communications projects, including the Media Center / DAM relaunch, Core Values communication, Circular Economy topics, ONE SYM / ONE Symrise Hub, Screen Network governance, the 2027 Corporate Calendar and corporate editorial materials, templates and guidelines. Across these initiatives, my focus remains the same: clarity, consistency and scalable visual systems.</p>
       </div>
-
-     <!-- 02 — CORE VALUES -->
-<a class="work-card work-card-link" href="https://www.symrise.com/our-company/this-is-us/" target="_blank" rel="noopener">
-  <div class="work-card-visual">
-    <img src="images/core-values.jpg" alt="Core Values Visual Direction" class="work-img">
-  </div>
-  <div class="work-card-body">
-    <div class="work-cat">Art Direction</div>
-    <div class="work-title">Core Values — Visual Direction</div>
-    <p class="work-desc">
-      Developing a visual direction to bring Symrise’s Core Values to life across internal communication materials — translating abstract principles into a more emotional, memorable and coherent visual system.
-    </p>
-    <div class="work-tags">
-      <span class="w-tag">Art direction</span>
-      <span class="w-tag">Values communication</span>
-      <span class="w-tag">Visual system</span>
-      <span class="w-tag">Internal engagement</span>
+    </div>
+    <div class="tl-entry">
+      <div class="card tl-card">
+        <div class="tl-year">2023 — 2024 <span class="contract-pill">Fixed-term contract</span></div>
+        <div class="tl-role">Junior Internal Communications Officer</div>
+        <div class="tl-co">Taste, Nutrition &amp; Health Segment</div>
+        <p class="tl-desc">Contributed to internal communications through digital signage, editorial design, intranet content and visual support for segment and corporate projects. This period strengthened my ability to structure communication needs into usable, consistent and business-relevant materials.</p>
+      </div>
+    </div>
+    <div class="tl-entry">
+      <div class="card tl-card">
+        <div class="tl-year">2022 — 2023 <span class="contract-pill">Apprenticeship</span></div>
+        <div class="tl-role">Junior Internal Communications Officer</div>
+        <div class="tl-co">Taste, Nutrition &amp; Health Segment</div>
+        <p class="tl-desc">Supported the deployment of TN&amp;H communication and branding across sites and touchpoints. Contributed to the opening of the Rennes Campus through local branding initiatives and helped establish the Rennes screen network with dedicated templates and guidelines.</p>
+      </div>
+    </div>
+    <div class="tl-entry">
+      <div class="card tl-card">
+        <div class="tl-year">2022 <span class="contract-pill">Internship</span></div>
+        <div class="tl-role">Communications Assistant</div>
+        <div class="tl-co">Aqua Feed BU</div>
+        <p class="tl-desc">Supported the digital strategy for Symrise Aqua Feed, created print communication materials for sales teams and contributed to the co-creation and follow-up of the media plan.</p>
+      </div>
     </div>
   </div>
-</a>
+</section>
 
-<!-- 03 — ONE SYM / ONE SYMRISE -->
-<a class="work-card work-card-link" href="https://symriseag.sharepoint.com/sites/ONESYM-HUB" target="_blank" rel="noopener">
-  <div class="work-card-visual">
-    <img src="images/one-sym-hub.jpg" alt="ONE SYM Hub" class="work-img">
-  </div>
-  <div class="work-card-body">
-    <div class="work-cat">Internal Platform & Brand Narrative</div>
-    <div class="work-title">ONE SYM / ONE Symrise Hub</div>
-    <p class="work-desc">
-      Supporting the ONE SYM and ONE Symrise narrative by structuring a dedicated hub that centralizes key content, updates and resources — helping employees better understand the initiative, follow its progress and connect with a shared Symrise story.
-    </p>
-    <div class="work-tags">
-      <span class="w-tag">Internal platform</span>
-      <span class="w-tag">Content structure</span>
-      <span class="w-tag">Editorial UX</span>
-      <span class="w-tag">ONE Symrise</span>
-    </div>
-  </div>
-</a>
-
-      <!-- 04 — SCREEN NETWORK -->
-      <div class="work-card">
-        <div class="work-card-visual">
-          <img src="images/screen-network.jpg" alt="Screen Network Governance" class="work-img">
-        </div>
-        <div class="work-card-body">
-          <div class="work-cat">Internal Communications</div>
-          <div class="work-title">Screen Network Governance</div>
-            <p class="work-desc">
-              Creating and expanding an internal screen network across several French sites — developing templates, editorial standards and workflows, while training local teams to publish content more autonomously and consistently.
-            </p>
-            <div class="work-tags">
-           <span class="w-tag">Network rollout</span>
-           <span class="w-tag">Templates & guidelines</span>
-            <span class="w-tag">Training</span>
-           <span class="w-tag">Digital signage</span>
-           <span class="w-tag">Governance</span>
-         </div>
-        </div>
-      </div>
-
-      <!-- 05 — CIRCULAR ECONOMY -->
-      <div class="work-card">
-        <div class="work-card-visual">
-          <img src="images/circular-economy.jpg" alt="Circular Economy Communication" class="work-img">
-        </div>
-        <div class="work-card-body">
-          <div class="work-cat">Sustainability Communication</div>
-          <div class="work-title">Circular Economy</div>
-          <p class="work-desc">
-            Supporting communication around circular economy topics by turning complex sustainability messages into clearer visual narratives, helping internal audiences understand the logic, ambition and impact behind the initiative.
-          </p>
-          <div class="work-tags">
-            <span class="w-tag">Sustainability</span>
-            <span class="w-tag">Message clarity</span>
-            <span class="w-tag">Visual storytelling</span>
-            <span class="w-tag">Internal communication</span>
-          </div>
-        </div>
-      </div>
-
-      
-      <!-- 06 — 2027 CALENDAR -->
-      <div class="work-card">
-        <div class="work-card-visual">
-          <img src="images/calendar-2027.jpg" alt="2027 Corporate Calendar" class="work-img">
-        </div>
-        <div class="work-card-body">
-          <div class="work-cat">Visual Concept & Art Direction</div>
-          <div class="work-title">2027 Corporate Calendar</div>
-          <p class="work-desc">
-            Creating a unified visual concept for the 2027 Corporate Calendar — moving from fragmented imagery toward a story-led system that reveals Symrise’s presence in everyday moments.
-          </p>
-          <div class="work-tags">
-            <span class="w-tag">Visual concept</span>
-            <span class="w-tag">Art direction</span>
-            <span class="w-tag">Storytelling</span>
-            <span class="w-tag">Brand expression</span>
-          </div>
-        </div>
-      </div>
-       
-    </div>
-  </section>
-
-  <footer>
-    <span class="f-logo">PMMC</span>
-    <span>Built as a candidacy · Designed with intent · Refined with AI</span>
-    <a href="#" onclick="go('profile')">Profile →</a>
-  </footer>
-</div>
-
-<!-- ════════════════════════════════════════════════════════
-     ROLE FIT
-════════════════════════════════════════════════════════ -->
-<div class="page" id="page-role">
-
-  <section class="section">
-    <div class="label">Why this role</div>
-    <div class="approach-statement">
-      Design is not decoration.<br>
-      <em>It is a way to make complexity easier to understand.</em>
-    </div>
-    <p class="body-lg" style="max-width:620px; margin-top:20px;">
-      My work sits between communication strategy, visual clarity and digital execution. I help transform internal information into clear, consistent and memorable visual experiences.
-    </p>
-
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pillar-bg-num">01</div>
-        <div class="pillar-line"></div>
-        <div class="pillar-h">Clarity</div>
-        <p class="pillar-p">Design should make information easier to understand — not just easier to look at. Every layout decision, every hierarchy choice and every visual signal is an act of communication.</p>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-bg-num">02</div>
-        <div class="pillar-line"></div>
-        <div class="pillar-h">Consistency</div>
-        <p class="pillar-p">A strong visual system helps every team speak with one recognizable voice. Consistency is not rigidity — it is the foundation that makes differentiation meaningful.</p>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-bg-num">03</div>
-        <div class="pillar-line"></div>
-        <div class="pillar-h">Emotion</div>
-        <p class="pillar-p">Even internal communication deserves rhythm, warmth and memorability. The best corporate communication does not only inform — it helps people connect with what matters.</p>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-bg-num">04</div>
-        <div class="pillar-line"></div>
-        <div class="pillar-h">Usefulness</div>
-        <p class="pillar-p">Beautiful is not enough. The work must help people find, understand and act. Usefulness and elegance are not opposites — they are the same ambition.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-white">
+<section class="section-white">
     <div class="label">The trajectory</div>
-    <h2 class="display" style="margin-bottom:16px;">From execution<br><em>to creative direction.</em></h2>
-    <p class="body-lg" style="max-width:620px; margin-bottom:56px;">
-      The Global Creative Design Lead role reflects the direction my work has already been taking at Symrise — moving from individual assets to visual systems, and from execution to creative leadership.
-    </p>
-
-    <div class="trajectory-strip">
+    <h2 class="display" style="margin-bottom:56px;">From execution<br><em>to creative direction.</em></h2>
+<div class="trajectory-strip">
 
       <div class="trajectory-step">
         <span class="trajectory-eyebrow">Before</span>
@@ -1856,189 +1813,43 @@ footer a:hover { color: var(--red); }
     </div>
   </section>
 
-<section class="section">
-   <div class="label">What I bring</div>
-  <h2 class="display" style="margin-bottom:16px;">Four strengths for<br><em>this role.</em></h2>
-  <p class="body-lg" style="max-width:560px; margin-bottom:0;">
+<section class="section-white">
+  <div class="label">What I bring</div>
+  <h2 class="display" style="margin-bottom:18px;">Four strengths<br><em>for this role.</em></h2>
+  <p class="body-md" style="max-width:620px;margin-bottom:48px;">
+    A combination of communication clarity, brand consistency, platform thinking and creative direction — shaped by a strong understanding of Symrise from the inside.
   </p>
 
-  <div class="strengths-grid">
-
+  <div class="strengths-grid profile-strengths">
     <div class="strength-item">
-      <div class="strength-icon">
-        <svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+      <div class="strength-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/></svg>
       </div>
       <div class="strength-h">Visual clarity</div>
-      <p class="strength-p">Turning complex internal messages into clear, structured and memorable communication — making information easier to understand, not just easier to look at.</p>
+      <p class="strength-p">Turning complex internal messages into clear, structured and impactful communication.</p>
     </div>
-
     <div class="strength-item">
-      <div class="strength-icon">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      <div class="strength-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/><path d="M9 9h6v6H9z"/></svg>
       </div>
       <div class="strength-h">Brand consistency</div>
-      <p class="strength-p">Building templates, systems and visual rules that help every team communicate with one recognizable voice — regardless of function or geography.</p>
+      <p class="strength-p">Building templates, standards and visual systems that help teams communicate with one recognizable voice.</p>
     </div>
-
     <div class="strength-item">
-      <div class="strength-icon">
-        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      <div class="strength-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>
       </div>
-      <div class="strength-h">Platform UX & digital systems</div>
-      <p class="strength-p">Designing internal touchpoints — asset libraries, hubs, screen networks and intranet spaces — with a focus on navigation, clarity, access and adoption.</p>
-      </div>
+      <div class="strength-h">Platform UX &amp; digital systems</div>
+      <p class="strength-p">Improving internal touchpoints — asset libraries, hubs, screen networks and intranet spaces — with a focus on navigation, access and adoption.</p>
+    </div>
     <div class="strength-item">
-      <div class="strength-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <div class="strength-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/><path d="M7 7l10 10"/></svg>
       </div>
-      <div class="strength-h">Creative direction</div>
-      <p class="strength-p">Moving beyond execution to advise, structure and elevate visual communication at scale — from individual assets to scalable creative systems.</p>
-    </div>
-
-  </div>
-</section>
-
-  <footer>
-    <span class="f-logo">PMMC</span>
-    <span>Built as a candidacy · Designed with intent · Refined with AI</span>
-    <a href="#" onclick="go('letter')">Letter →</a>
-  </footer>
-
-</div>
-   
-<!-- ════════════════════════════════════════════════════════
-     PROFILE
-════════════════════════════════════════════════════════ -->
-   <div class="page" id="page-profile">
-<section class="section">
-  <div class="label">Career at Symrise</div>
-  <h2 class="display profile-heading">A journey built<br><em>from within.</em></h2>
-  <p class="body-lg profile-intro">
-    Four years of growing contribution to how Symrise communicates — from business unit support to broader corporate communication projects, visual systems and strategic storytelling.
-  </p>
-
-  <div class="tl">
-    <div class="tl-entry now">
-      <div class="card tl-card">
-        <div class="tl-year">2024 — Present</div>
-        <div class="tl-role">Internal Communications Officer</div>
-         <div class="tl-co">
-           <span>Taste, Nutrition &amp; Health Segment</span>
-           <span class="tl-contract">Permanent role</span>
-         </div>        
-         <p class="tl-desc">Since moving into a permanent role, my scope has increasingly expanded toward broader Corporate Communications projects — from the Media Center relaunch and Core Values communication to Circular Economy storytelling, Screen Network governance, the 2027 Corporate Calendar concept and corporate editorial materials. Across these initiatives, my focus remains the same: clarity, consistency and scalable visual systems.</p>
-      </div>
-    </div>
-    <div class="tl-entry">
-      <div class="card tl-card">
-        <div class="tl-year">2023 — 2024</div>
-        <div class="tl-role">Junior Internal Communications Officer</div>
-        <div class="tl-co">
-           <span>Taste, Nutrition &amp; Health Segment</span>
-           <span class="tl-contract">Fixed-term contract</span>
-         </div>
-        <p class="tl-desc">Leading visual communication initiatives across internal platforms, digital signage, editorial design and asset management. Driving the Media Center relaunch, Screen Network governance and the visual concept for the 2027 Corporate Calendar. Developing templates and design systems that support consistent communication at scale.</p>
-      </div>
-    </div>
-    <div class="tl-entry">
-      <div class="card tl-card">
-        <div class="tl-year">2022 — 2023</div>
-        <div class="tl-role">Junior Internal Communications Officer</div>
-        <div class="tl-co">
-  <span>Taste, Nutrition &amp; Health Segment</span>
-  <span class="tl-contract">Apprenticeship</span>
-</div>
-        <p class="tl-desc">Supported the development and deployment of the TN&amp;H segment branding, helping translate Symrise's visual identity across multiple sites and touchpoints. Contributed actively to the opening of the Rennes Campus through local on-site branding initiatives, and helped establish the Rennes screen network with dedicated templates and guidelines for consistent digital signage.</p>
-      </div>
-    </div>
-    <div class="tl-entry">
-      <div class="card tl-card">
-        <div class="tl-year">2022</div>
-        <div class="tl-role">Communications Assistant</div>
-        <div class="tl-co">
-  <span>Aqua Feed BU</span>
-  <span class="tl-contract">Internship</span>
-</div>
-        <p class="tl-desc">Supported the development and deployment of the digital strategy for Symrise Aqua Feed. Created print communication materials for sales teams and contributed to the co-creation and follow-up of the media plan.</p>
-      </div>
+      <div class="strength-h">Creative direction mindset</div>
+      <p class="strength-p">Moving beyond execution to advise, structure and elevate visual communication at a broader scale.</p>
     </div>
   </div>
-</section>
-
-<section class="section-white">
-  <div style="text-align:center;margin-bottom:72px">
-    <div class="label" style="justify-content:center">Creative sensibility</div>
-    <h2 class="display" style="margin-bottom:0">A way of<br><em>looking.</em></h2>
-  </div>
-  <div class="sensibility-block">
-    <p class="sensibility-quote">
-      I have always been drawn to things that feel right before they need to be <em>explained.</em>
-    </p>
-    <p class="sensibility-body">
-      A room where every object has its place. A scent that leaves a trace. A photograph that captures the right light. A dish where balance matters more than excess. A layout where hierarchy suddenly makes everything clear.<br><br>
-      They shape the way I care about clarity, rhythm and detail.
-    </p>
-    <p class="sensibility-body" style="margin-top:32px;font-size:14px;color:var(--text-4);font-style:italic;letter-spacing:0.01em">
-      Like a scent, good design can leave a quiet trace — subtle, but memorable.
-    </p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="label">The worlds that shape my eye</div>
-  <h2 class="display" style="margin-bottom:12px">What feeds<br><em>my creativity.</em></h2>
-  <p class="body-md fade-in" style="max-width:480px">
-  My inspiration doesn't only come from design.<br>
-  It comes from the way I look at spaces, scents, images and everyday rituals.
-</p>
-
-  <div class="worlds-grid">
-    <div class="world-card wfb-1">
-      <img class="world-img" src="images/world-deco.jpg" alt="Interior design" onerror="this.style.display='none'">
-      <div class="world-fb-icon" aria-hidden="true">⬡</div>
-      <div class="world-overlay"></div>
-      <div class="world-content">
-        <div class="world-num">01</div>
-        <div class="world-title">Interior design</div>
-        <div class="world-phrase">Proportion, atmosphere and the role of silence. Spaces that breathe without needing to explain themselves.</div>
-      </div>
-    </div>
-    <div class="world-card wfb-2">
-      <img class="world-img" src="images/world-perfume.jpg" alt="Perfumery" onerror="this.style.display='none'">
-      <div class="world-fb-icon" aria-hidden="true">◎</div>
-      <div class="world-overlay"></div>
-      <div class="world-content">
-        <div class="world-num">02</div>
-        <div class="world-title">Perfumery</div>
-        <div class="world-phrase">Emotion, memory and the trace something leaves behind. The strongest impressions are rarely the loudest.</div>
-      </div>
-    </div>
-    <div class="world-card wfb-3">
-      <img class="world-img" src="images/world-photo.jpg" alt="Photography" onerror="this.style.display='none'">
-      <div class="world-fb-icon" aria-hidden="true">◻</div>
-      <div class="world-overlay"></div>
-      <div class="world-content">
-        <div class="world-num">03</div>
-        <div class="world-title">Photography</div>
-        <div class="world-phrase">Light, framing and the art of noticing. Not what to add — but what to keep.</div>
-      </div>
-    </div>
-      <div class="world-card wfb-4">
-        <img class="world-img" src="images/world-travel.jpg" alt="Travels in Brittany" onerror="this.style.display='none'">
-        <div class="world-fb-icon" aria-hidden="true">◑</div>
-        <div class="world-overlay"></div>
-        <div class="world-content">
-          <div class="world-num">04</div>
-          <div class="world-title">Travels</div>
-          <div class="world-phrase">
-            Changing environment, slowing down and making space for ideas to wander. Often in Brittany, inspiration comes from stepping away — and returning with clearer intent.
-          </div>
-        </div>
-      </div>
-
-<p class="body-md" style="max-width:680px;margin:48px auto 0;text-align:center;font-style:italic;color:var(--text-3)">
-  Together, these worlds shape the creative judgment I bring to communication — making things feel clear, considered and memorable. For me, inspiration often comes from changing my environment, slowing down the pace and creating space for ideas to wander. Taking time to escape is not a break from my work — it is part of what makes it better.
-</p>
 </section>
 
 <section class="section-white">
@@ -2049,12 +1860,11 @@ footer a:hover { color: var(--red); }
       <div class="sg-title">Creative &amp; Visual Design</div>
       <div class="sg-tags">
         <span class="sg-tag accent">Visual storytelling</span>
-        <span class="sg-tag accent">Art direction</span>
-         <span class="sg-tag accent">Editorial design</span>
+        <span class="sg-tag accent">Creative direction</span>
+        <span class="sg-tag accent">Layout systems</span>
+        <span class="sg-tag accent">Editorial design</span>
         <span class="sg-tag accent">Presentation design</span>
         <span class="sg-tag accent">Digital-first design</span>
-         <span class="sg-tag accent">UX thinking</span>
-         <span class="sg-tag accent">Interface clarity</span>
         <span class="sg-tag accent">Brand consistency</span>
       </div>
       <div class="sg-title">Corporate Communications</div>
@@ -2083,7 +1893,7 @@ footer a:hover { color: var(--red); }
       <div class="sg-title">Ways of working</div>
       <div class="sg-tags">
         <span class="sg-tag">Creative ownership</span>
-         <span class="sg-tag">Precision</span>
+        <span class="sg-tag">Precision</span>
         <span class="sg-tag">Structure</span>
         <span class="sg-tag">Autonomy</span>
         <span class="sg-tag">Collaborative leadership</span>
@@ -2094,17 +1904,223 @@ footer a:hover { color: var(--red); }
   </div>
 </section>
 
+<section class="section">
+  <div class="creative-layout">
+    <div class="creative-copy">
+      <div class="label">Creative sensibility</div>
+      <h2 class="display" style="margin-bottom:12px">What feeds<br><em>my creativity.</em></h2>
+         <p class="creative-quote-inline">
+           I have always been drawn to things that feel right before they need to be explained.
+         </p>
+         
+         <p class="body-md">
+           My inspiration does not only come from design. It comes from the way I look at spaces, scents, images and moments of distance.
+         </p>
+    </div>
+
+    <div class="worlds-grid">
+      <div class="world-card wfb-1">
+        <img class="world-img" src="images/world-deco.jpg" alt="Interior design" onerror="this.style.display='none'">
+        <div class="world-overlay"></div>
+        <div class="world-content">
+          <div class="world-num">01</div>
+          <div class="world-title">Interior design</div>
+          <div class="world-phrase">Proportion, atmosphere and the role of silence. Spaces that feel clear without needing to explain themselves.</div>
+        </div>
+      </div>
+
+      <div class="world-card wfb-2">
+        <img class="world-img" src="images/world-perfume.jpg" alt="Perfumery" onerror="this.style.display='none'">
+        <div class="world-overlay"></div>
+        <div class="world-content">
+          <div class="world-num">02</div>
+          <div class="world-title">Perfumery</div>
+          <div class="world-phrase">Balance, trace and precision. The idea that something subtle can still create a strong impression.</div>
+        </div>
+      </div>
+
+      <div class="world-card wfb-3">
+        <img class="world-img" src="images/world-photo.jpg" alt="Photography" onerror="this.style.display='none'">
+        <div class="world-overlay"></div>
+        <div class="world-content">
+          <div class="world-num">03</div>
+          <div class="world-title">Photography</div>
+          <div class="world-phrase">Light, framing and timing. Knowing what to show, what to leave out and where the eye should land.</div>
+        </div>
+      </div>
+
+      <div class="world-card wfb-4">
+        <img class="world-img" src="images/world-travel.jpg" alt="Travels" onerror="this.style.display='none'">
+        <div class="world-overlay"></div>
+        <div class="world-content">
+          <div class="world-num">04</div>
+          <div class="world-title">Travels</div>
+          <div class="world-phrase">Changing environment, slowing down and making space for ideas to wander. Often in Brittany, stepping away helps me return with clearer intent.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <span class="f-logo">PMMC</span>
   <span>Built as a candidacy · Designed with intent · Refined with AI</span>
-  <a href="#" onclick="go('letter')">Letter →</a>
+  <a href="#" onclick="go('work')">Projects →</a>
 </footer>
 
 </div>
-   
-<!-- ════════════════════════════════════════════════════════
-     LETTER
-════════════════════════════════════════════════════════ -->
+
+<div class="page" id="page-work">
+  <section class="section">
+    <div class="label">Selected projects</div>
+
+    <h2 class="display work-heading">
+      Projects that make<br><em>communication clearer.</em>
+    </h2>
+
+    <p class="body-lg" style="max-width:560px; margin-bottom:64px;">
+      Six selected proof points showing how design, structure and platform thinking can improve clarity, consistency and adoption.
+    </p>
+
+    <div class="work-grid">
+
+      <!-- 01 — 2027 CALENDAR -->
+      <div class="work-card">
+        <div class="work-card-visual">
+          <img src="images/calendar-2027.jpg" alt="2027 Corporate Calendar" class="work-img">
+        </div>
+        <div class="work-card-body">
+          <div class="work-cat">Visual Concept &amp; Art Direction</div>
+          <div class="work-title">2027 Corporate Calendar</div>
+          <p class="work-desc">
+            Creating a unified visual concept for the 2027 Corporate Calendar — moving from fragmented imagery toward a story-led system that reveals Symrise’s presence in everyday moments.
+          </p>
+          <div class="work-tags">
+            <span class="w-tag">Visual concept</span>
+            <span class="w-tag">Art direction</span>
+            <span class="w-tag">Story-led system</span>
+            <span class="w-tag">Brand expression</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 02 — SYMRISE LIBRARY -->
+      <div class="work-card">
+        <div class="work-card-visual">
+          <img src="images/media-center.jpg" alt="Media Center Relaunch" class="work-img">
+        </div>
+        <div class="work-card-body">
+          <div class="work-cat">DAM / Digital Asset Management</div>
+          <div class="work-title">Symrise Library / Media Center</div>
+          <p class="work-desc">
+            Restructuring Symrise’s DAM / Media Center experience with a stronger frontend logic — improving information architecture, navigation, naming conventions and user adoption to make brand assets easier to find, understand and use.
+          </p>
+          <div class="work-tags">
+            <span class="w-tag">Information architecture</span>
+            <span class="w-tag">UX &amp; UI</span>
+            <span class="w-tag">Content structure</span>
+            <span class="w-tag">Asset adoption</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 03 — ONE SYM / ONE SYMRISE HUB -->
+      <a class="work-card work-card-link" href="https://symriseag.sharepoint.com/sites/ONESYM-HUB" target="_blank" rel="noopener noreferrer" aria-label="Open ONE SYM / ONE Symrise Hub in a new tab">
+        <div class="work-card-visual">
+          <img src="images/one-sym-hub.jpg" alt="ONE SYM / ONE Symrise Hub" class="work-img">
+        </div>
+        <div class="work-card-body">
+          <div class="work-cat">Internal Platform &amp; Brand Narrative</div>
+          <div class="work-title">ONE SYM / ONE Symrise Hub</div>
+          <p class="work-desc">
+            Supporting the ONE SYM and ONE Symrise narrative by structuring a dedicated hub that centralizes key content, updates and resources — giving employees one place to follow the initiative, understand its progress and connect the transformation narrative with concrete materials.
+          </p>
+          <div class="work-tags">
+            <span class="w-tag">Internal platform</span>
+            <span class="w-tag">Content structure</span>
+            <span class="w-tag">Editorial UX</span>
+            <span class="w-tag">ONE Symrise</span>
+          </div>
+        </div>
+      </a>
+
+
+      <!-- 04 — CIRCULAR ECONOMY -->
+      <div class="work-card">
+        <div class="work-card-visual">
+          <img src="images/circular-economy.jpg" alt="Circular Economy Communication" class="work-img">
+        </div>
+        <div class="work-card-body">
+          <div class="work-cat">Sustainability Communication</div>
+          <div class="work-title">Circular Economy</div>
+          <p class="work-desc">
+            Supporting communication around circular economy topics by turning complex sustainability messages into clearer visual narratives, helping internal audiences understand the logic, ambition and impact behind the initiative.
+          </p>
+          <div class="work-tags">
+            <span class="w-tag">Sustainability</span>
+            <span class="w-tag">Message clarity</span>
+            <span class="w-tag">Visual storytelling</span>
+            <span class="w-tag">Internal communication</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 05 — CORE VALUES -->
+      <a class="work-card work-card-link" href="https://www.symrise.com/our-company/this-is-us/" target="_blank" rel="noopener noreferrer" aria-label="Open Core Values page in a new tab">
+        <div class="work-card-visual">
+          <img src="images/core-values.jpg" alt="Core Values Visual Direction" class="work-img">
+        </div>
+        <div class="work-card-body">
+          <div class="work-cat">Art Direction</div>
+          <div class="work-title">Core Values — Visual Direction</div>
+          <p class="work-desc">
+            Developing a visual direction to support Symrise’s Core Values communication — translating strategic principles into clearer, more consistent and engaging internal materials.
+          </p>
+          <div class="work-tags">
+            <span class="w-tag">Art direction</span>
+            <span class="w-tag">Values communication</span>
+            <span class="w-tag">Visual system</span>
+            <span class="w-tag">Internal engagement</span>
+          </div>
+        </div>
+      </a>
+
+
+      <!-- 06 — SCREEN NETWORK -->
+      <div class="work-card">
+        <div class="work-card-visual">
+          <img src="images/screen-network.jpg" alt="Screen Network Governance" class="work-img">
+        </div>
+        <div class="work-card-body">
+          <div class="work-cat">Digital Signage &amp; Governance</div>
+          <div class="work-title">Screen Network Governance</div>
+          <p class="work-desc">
+            Creating and expanding an internal screen network across several French sites — developing templates, editorial standards and workflows, while training local teams to publish content more autonomously and consistently.
+          </p>
+          <div class="work-tags">
+            <span class="w-tag">Network rollout</span>
+            <span class="w-tag">Training</span>
+            <span class="w-tag">Digital signage</span>
+            <span class="w-tag">Governance</span>
+            <span class="w-tag">Templates &amp; guidelines</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span class="f-logo">PMMC</span>
+    <span>Built as a candidacy · Designed with intent · Refined with AI</span>
+    <a href="#" onclick="go('letter')">Letter →</a>
+  </footer>
+</div>
+
+
 <div class="page" id="page-letter">
 
   <div class="cover-wrap">
@@ -2148,7 +2164,7 @@ footer a:hover { color: var(--red); }
     <footer>
       <span class="f-logo">PMMC</span>
       <span>Built as a candidacy · Designed with intent · Refined with AI</span>
-      <a href="#" onclick="go('work')">Projects →</a>
+      <a href="#" onclick="go('contact')">Contact →</a>
     </footer>
 
   </div>
@@ -2233,21 +2249,21 @@ function go(id) {
   return false;
 }
 
-const SPEEDS = { slow: 90, normal: 65, fast: 28 };
+const SPEEDS = { slow: 45, normal: 30, fast: 16 };
 let speed = 'normal';
 let delay = SPEEDS.normal;
 let playing = false;
 let done = false;
 let timeoutId = null;
 
-const SALUTATION = "Dear Madam, Dear Sir,";
+const SALUTATION = "Dear Marc,";
 
 const PARAGRAPHS = [
-  "I am applying for the Global Creative Design Lead role because it reflects the direction my work has already been taking — moving from visual execution to creative direction, from individual communication assets to scalable systems, and from isolated requests to a more consistent visual language for Symrise.",
-  "Over the past four years, I have developed a strong understanding of Symrise's organization, visual identity, internal platforms and communication needs. I have contributed to digital signage, intranet content, editorial documents, visual systems, internal branding initiatives and the evolution of the Media Center — always with the same underlying ambition: making complex information easier to understand and more consistent to communicate.",
-  "What motivates me in this opportunity is the possibility to help shape how Symrise communicates visually at a broader level. I believe design can do more than make communication look better. It can make messages clearer, systems easier to use, and corporate storytelling more coherent, memorable and useful.",
-  "I would bring a combination of creative sensitivity, structure, precision and internal knowledge. My ambition would be to support a stronger visual expression across corporate communications, while creating practical tools and systems that teams can genuinely adopt — making quality design the default, not the exception.",
-  "This role feels like a natural next step: an opportunity to contribute not only through design, but through creative leadership. I would be glad to discuss how I can help shape Symrise's visual communication at the scale this role enables."
+  "I am applying for the Global Creative Design Lead role because it reflects the direction my work has already been taking at Symrise: moving from visual execution to broader creative contribution, from individual assets to scalable systems, and from isolated requests to a more consistent visual language.",
+  "Over the past four years, I have developed a strong understanding of Symrise's organization, visual identity, internal platforms and communication needs. Through projects such as the Media Center relaunch, the screen network, Core Values communication, ONE SYM / ONE Symrise, circular economy topics and corporate editorial materials, I have worked to make complex information clearer, more structured and easier to use.",
+  "What motivates me in this opportunity is the possibility to help shape how Corporate Communications expresses itself visually at a broader level. I believe design can support more than aesthetics: it can improve consistency, strengthen understanding, create better tools for teams and make communication more impactful.",
+  "I would bring creative sensitivity, structure, precision and strong internal knowledge. My ambition would be to support a more coherent visual expression across Corporate Communications while developing practical systems that teams can genuinely adopt.",
+  "This role feels like a natural next step: an opportunity to contribute not only through design execution, but through creative direction, visual standards and communication quality at scale."
 ];
 
 const allSegments = [
