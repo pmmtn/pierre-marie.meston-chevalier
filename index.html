@@ -1678,6 +1678,21 @@ footer a:hover { color: var(--red); }
   margin-top: 52px;
 }
 
+
+
+/* PMM adjustments — homepage proportions */
+.hero-role {
+  font-size: clamp(20px, 1.8vw, 28px);
+  max-width: 1040px;
+  white-space: nowrap;
+}
+.hero-name-new::after {
+  display: none;
+  content: none;
+}
+@media (max-width: 1024px) {
+  .hero-role { white-space: normal; max-width: 840px; }
+}
 </style>
 </head>
 <body>
@@ -2282,15 +2297,10 @@ const SALUTATION = "Dear Marc,";
 
 const PARAGRAPHS = [
   "I am applying for the Global Creative Design Lead role because it reflects the direction my work has already been taking at Symrise: moving from visual execution to broader creative contribution, from individual assets to scalable systems, and from isolated requests to a more consistent visual language.",
-
   "Over the past four years, I have built a strong understanding of Symrise from the inside — its organization, its visual identity, its communication needs, and the way teams use internal platforms and assets in their daily work. Starting from BU communication topics and progressively moving toward broader Corporate Communications projects has given me a practical view of both local needs and global consistency.",
-
   "Through projects such as the Media Center relaunch, the screen network, Core Values communication, ONE SYM / ONE Symrise, circular economy topics and corporate editorial materials, I have increasingly focused on making communication clearer, more structured and easier to use. What interests me most is not only creating strong visuals, but building systems, templates and standards that help others communicate with more consistency and impact.",
-
   "This is why the role feels like a natural next step. It brings together what I enjoy most and where I believe I can contribute: creative direction, visual clarity, design governance, practical tools, and a strong understanding of how Corporate Communications works from within.",
-
   "I would bring creative sensitivity, structure, attention to detail and a good knowledge of Symrise’s internal environment. My ambition would be to help shape a more coherent visual expression for Corporate Communications, while developing design solutions that are useful, scalable and genuinely adopted by teams.",
-
   "For me, this opportunity is not only about doing more design. It is about helping define how Corporate Communications looks, feels and communicates at Group level."
 ];
 
