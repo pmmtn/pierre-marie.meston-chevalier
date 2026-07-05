@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1693,19 +1693,57 @@ footer a:hover { color: var(--red); }
 @media (max-width: 1024px) {
   .hero-role { white-space: normal; max-width: 840px; }
 }
+
+/* ════════════════════════════════════════════════
+   LANGUAGE TOGGLE (i18n FR / EN)
+════════════════════════════════════════════════ */
+.i18n-en { display: none; }
+body.lang-en .i18n-fr { display: none; }
+body.lang-en .i18n-en { display: inline; }
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 10px;
+  padding: 6px 12px;
+  border-radius: 980px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-white);
+  color: var(--text-2);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.18s var(--ease);
+}
+.lang-toggle svg { stroke: var(--red); flex-shrink: 0; }
+.lang-toggle:hover {
+  border-color: rgba(0,0,0,0.2);
+  transform: scale(1.03);
+}
+@media (max-width: 768px) {
+  .lang-toggle span { display: none; }
+  .lang-toggle { padding: 8px; }
+}
 </style>
 </head>
-<body>
+<body class="lang-fr">
 
 <!-- ═══════ NAV ═══════ -->
 <nav>
   <a class="nav-logo" href="#" onclick="go('home')">PMMC<span> ·</span></a>
   <div class="nav-links">
-    <a href="#" onclick="go('home')" id="n-home" class="active nav-hide">Home</a>
-    <a href="#" onclick="go('profile')" id="n-profile" class="nav-hide">Profile</a>
-    <a href="#" onclick="go('work')" id="n-work" class="nav-hide">Projects</a>
-    <a href="#" onclick="go('letter')" id="n-letter" class="nav-hide">Letter</a>
-    <a href="#" onclick="go('contact')" id="n-contact" class="nav-pill">Contact</a>
+    <a href="#" onclick="go('home')" id="n-home" class="active nav-hide"><span class="i18n-fr">Accueil</span><span class="i18n-en">Home</span></a>
+    <a href="#" onclick="go('profile')" id="n-profile" class="nav-hide"><span class="i18n-fr">Profil</span><span class="i18n-en">Profile</span></a>
+    <a href="#" onclick="go('work')" id="n-work" class="nav-hide"><span class="i18n-fr">Projets</span><span class="i18n-en">Projects</span></a>
+    <a href="#" onclick="go('letter')" id="n-letter" class="nav-hide"><span class="i18n-fr">Lettre</span><span class="i18n-en">Letter</span></a>
+    <a href="#" onclick="go('contact')" id="n-contact" class="nav-pill"><span class="i18n-fr">Contact</span><span class="i18n-en">Contact</span></a>
+    <button class="lang-toggle" type="button" onclick="toggleLang()" aria-label="Changer de langue / Switch language" title="FR / EN">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg>
+      <span id="lang-toggle-label">EN</span>
+    </button>
   </div>
 </nav>
 
@@ -1720,7 +1758,8 @@ footer a:hover { color: var(--red); }
     <div class="hero-left-new">
 
       <p class="hero-role animated-line delay-2">
-        Portfolio for the <strong>Global Creative Design Lead</strong> role.
+        <span class="i18n-fr">Portfolio pour le poste de <strong>Global Creative Design Lead</strong>.</span>
+        <span class="i18n-en">Portfolio for the <strong>Global Creative Design Lead</strong> role.</span>
       </p>
 
       <h1 class="hero-name-new animated-main">
@@ -1729,8 +1768,8 @@ footer a:hover { color: var(--red); }
       </h1>
 
       <div class="hero-cta animated-cta delay-3">
-        <a class="btn btn-red hero-main-cta hero-primary-cta" href="#" onclick="go('profile')">View role fit →</a>
-        <a class="btn btn-outline-red hero-main-cta hero-primary-cta" href="#" onclick="go('letter')">Read my intent →</a>
+        <a class="btn btn-red hero-main-cta hero-primary-cta" href="#" onclick="go('profile')"><span class="i18n-fr">Voir mon adéquation au poste →</span><span class="i18n-en">View role fit →</span></a>
+        <a class="btn btn-outline-red hero-main-cta hero-primary-cta" href="#" onclick="go('letter')"><span class="i18n-fr">Lire ma lettre de motivation →</span><span class="i18n-en">Read my intent →</span></a>
       </div>
 
     </div>
@@ -1746,15 +1785,15 @@ footer a:hover { color: var(--red); }
   </div>
 
   <div class="soft-float-card soft-card-1">
-    <span>Global Creative Design Lead opportunity</span>
+    <span><span class="i18n-fr">Poste Global Creative Design Lead</span><span class="i18n-en">Global Creative Design Lead opportunity</span></span>
   </div>
 
   <div class="soft-float-card soft-card-2">
-    <span>4 years at Symrise</span>
+    <span><span class="i18n-fr">4 ans chez Symrise</span><span class="i18n-en">4 years at Symrise</span></span>
   </div>
 
   <div class="soft-float-card soft-card-3">
-    <span>Brand &amp; Visual Systems</span>
+    <span><span class="i18n-fr">Marque &amp; systèmes visuels</span><span class="i18n-en">Brand &amp; Visual Systems</span></span>
   </div>
 </div>
 
@@ -1762,65 +1801,96 @@ footer a:hover { color: var(--red); }
 
   <footer>
     <span class="f-logo">PMMC</span>
-    <span>Built as a candidacy · Designed with intent · Refined with AI</span>
-    <a href="#" onclick="go('profile')">Why this role →</a>
+    <span><span class="i18n-fr">Conçu comme une candidature · Pensé avec intention · Affiné avec l'IA</span><span class="i18n-en">Built as a candidacy · Designed with intent · Refined with AI</span></span>
+    <a href="#" onclick="go('profile')"><span class="i18n-fr">Pourquoi ce poste →</span><span class="i18n-en">Why this role →</span></a>
   </footer>
 </div>
 
 
 <div class="page" id="page-profile">
 <section class="section">
-  <div class="label">Profile</div>
-  <h2 class="display profile-heading">A journey,<br><em>built from within.</em></h2>
+  <div class="label"><span class="i18n-fr">Profil</span><span class="i18n-en">Profile</span></div>
+  <h2 class="display profile-heading">
+    <span class="i18n-fr">Un parcours,<br><em>construit de l'intérieur.</em></span>
+    <span class="i18n-en">A journey,<br><em>built from within.</em></span>
+  </h2>
   <p class="body-lg profile-intro">
-    I have been growing within Symrise for more than four years, from BU communication support to broader Corporate Communications topics. This internal knowledge — of the organization, its platforms, its visual identity and its communication needs — is what makes this role feel like a natural next step.
+    <span class="i18n-fr">J'évolue au sein de Symrise depuis plus de quatre ans, du support à la communication de BU jusqu'à des sujets de Communication Corporate plus larges. Cette connaissance interne — de l'organisation, de ses plateformes, de son identité visuelle et de ses besoins en communication — est ce qui fait de ce poste une suite naturelle.</span>
+    <span class="i18n-en">I have been growing within Symrise for more than four years, from BU communication support to broader Corporate Communications topics. This internal knowledge — of the organization, its platforms, its visual identity and its communication needs — is what makes this role feel like a natural next step.</span>
   </p>
 
   <div class="tl">
     <div class="tl-entry now">
       <div class="card tl-card">
-        <div class="tl-year">2024 — Present <span class="contract-pill">Permanent role</span></div>
-        <div class="tl-role">Internal Communications Officer</div>
-        <div class="tl-co">Corporate Communications · Taste, Nutrition &amp; Health Segment</div>
-        <p class="tl-desc">Since moving into a permanent role, my scope has expanded toward broader Corporate Communications projects, including the Media Center / DAM relaunch, Core Values communication, Circular Economy topics, ONE Symrise + the ONE SYM Hub, Screen Network governance, the 2027 Corporate Calendar and corporate editorial materials, templates and guidelines. Across these initiatives, my focus remains the same: clarity, consistency and scalable visual systems.</p>
+        <div class="tl-year">
+          <span class="i18n-fr">2024 — Aujourd'hui</span><span class="i18n-en">2024 — Present</span>
+          <span class="contract-pill"><span class="i18n-fr">CDI</span><span class="i18n-en">Permanent role</span></span>
+        </div>
+        <div class="tl-role"><span class="i18n-fr">Chargé de communication interne</span><span class="i18n-en">Internal Communications Officer</span></div>
+        <div class="tl-co"><span class="i18n-fr">Communication Corporate · Segment Taste, Nutrition &amp; Health</span><span class="i18n-en">Corporate Communications · Taste, Nutrition &amp; Health Segment</span></div>
+        <p class="tl-desc">
+          <span class="i18n-fr">Depuis mon passage en CDI, mon périmètre s'est élargi vers des projets de Communication Corporate plus larges, notamment la relance du Media Center / DAM, la communication des Core Values, les sujets d'économie circulaire, ONE Symrise et le ONE SYM Hub, la gouvernance du réseau d'écrans, le calendrier corporate 2027 ainsi que des supports éditoriaux, modèles et lignes directrices. À travers ces initiatives, mon objectif reste le même : clarté, cohérence et systèmes visuels évolutifs.</span>
+          <span class="i18n-en">Since moving into a permanent role, my scope has expanded toward broader Corporate Communications projects, including the Media Center / DAM relaunch, Core Values communication, Circular Economy topics, ONE Symrise + the ONE SYM Hub, Screen Network governance, the 2027 Corporate Calendar and corporate editorial materials, templates and guidelines. Across these initiatives, my focus remains the same: clarity, consistency and scalable visual systems.</span>
+        </p>
       </div>
     </div>
     <div class="tl-entry">
       <div class="card tl-card">
-        <div class="tl-year">2023 — 2024 <span class="contract-pill">Fixed-term contract</span></div>
-        <div class="tl-role">Junior Internal Communications Officer</div>
-        <div class="tl-co">Taste, Nutrition &amp; Health Segment</div>
-        <p class="tl-desc">Contributed to internal communications through digital signage, editorial design, intranet content and visual support for segment and corporate projects. This period strengthened my ability to structure communication needs into usable, consistent and business-relevant materials.</p>
+        <div class="tl-year">
+          2023 — 2024
+          <span class="contract-pill"><span class="i18n-fr">CDD</span><span class="i18n-en">Fixed-term contract</span></span>
+        </div>
+        <div class="tl-role"><span class="i18n-fr">Chargé de communication interne junior</span><span class="i18n-en">Junior Internal Communications Officer</span></div>
+        <div class="tl-co"><span class="i18n-fr">Segment Taste, Nutrition &amp; Health</span><span class="i18n-en">Taste, Nutrition &amp; Health Segment</span></div>
+        <p class="tl-desc">
+          <span class="i18n-fr">Contribution à la communication interne à travers l'affichage numérique, le design éditorial, le contenu intranet et le support visuel pour des projets de segment et corporate. Cette période a renforcé ma capacité à structurer les besoins de communication en supports utilisables, cohérents et pertinents pour l'activité.</span>
+          <span class="i18n-en">Contributed to internal communications through digital signage, editorial design, intranet content and visual support for segment and corporate projects. This period strengthened my ability to structure communication needs into usable, consistent and business-relevant materials.</span>
+        </p>
       </div>
     </div>
     <div class="tl-entry">
       <div class="card tl-card">
-        <div class="tl-year">2022 — 2023 <span class="contract-pill">Apprenticeship</span></div>
-        <div class="tl-role">Junior Internal Communications Officer</div>
-        <div class="tl-co">Taste, Nutrition &amp; Health Segment</div>
-        <p class="tl-desc">Supported the deployment of TN&amp;H communication and branding across sites and touchpoints. Contributed to the opening of the Rennes Campus through local branding initiatives and helped establish the Rennes screen network with dedicated templates and guidelines.</p>
+        <div class="tl-year">
+          2022 — 2023
+          <span class="contract-pill"><span class="i18n-fr">Alternance</span><span class="i18n-en">Apprenticeship</span></span>
+        </div>
+        <div class="tl-role"><span class="i18n-fr">Chargé de communication interne junior</span><span class="i18n-en">Junior Internal Communications Officer</span></div>
+        <div class="tl-co"><span class="i18n-fr">Segment Taste, Nutrition &amp; Health</span><span class="i18n-en">Taste, Nutrition &amp; Health Segment</span></div>
+        <p class="tl-desc">
+          <span class="i18n-fr">Accompagnement du déploiement de la communication et du branding TN&amp;H sur l'ensemble des sites et points de contact. Contribution à l'ouverture du Campus de Rennes à travers des initiatives de branding local, et participation à la mise en place du réseau d'écrans de Rennes avec des modèles et lignes directrices dédiés.</span>
+          <span class="i18n-en">Supported the deployment of TN&amp;H communication and branding across sites and touchpoints. Contributed to the opening of the Rennes Campus through local branding initiatives and helped establish the Rennes screen network with dedicated templates and guidelines.</span>
+        </p>
       </div>
     </div>
     <div class="tl-entry">
       <div class="card tl-card">
-        <div class="tl-year">2022 <span class="contract-pill">Internship</span></div>
-        <div class="tl-role">Communications Assistant</div>
-        <div class="tl-co">Aqua Feed BU</div>
-        <p class="tl-desc">Supported the digital strategy for Symrise Aqua Feed, created print communication materials for sales teams and contributed to the co-creation and follow-up of the media plan.</p>
+        <div class="tl-year">
+          2022
+          <span class="contract-pill"><span class="i18n-fr">Stage</span><span class="i18n-en">Internship</span></span>
+        </div>
+        <div class="tl-role"><span class="i18n-fr">Assistant communication</span><span class="i18n-en">Communications Assistant</span></div>
+        <div class="tl-co">BU Aqua Feed</div>
+        <p class="tl-desc">
+          <span class="i18n-fr">Accompagnement de la stratégie digitale de Symrise Aqua Feed, création de supports de communication imprimés pour les équipes commerciales, et contribution à la co-création et au suivi du plan média.</span>
+          <span class="i18n-en">Supported the digital strategy for Symrise Aqua Feed, created print communication materials for sales teams and contributed to the co-creation and follow-up of the media plan.</span>
+        </p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="section-white profile-trajectory-section">
-    <div class="label">The trajectory</div>
-    <h2 class="display" style="margin-bottom:28px;">From execution<br><em>to creative direction.</em></h2>
+    <div class="label"><span class="i18n-fr">La trajectoire</span><span class="i18n-en">The trajectory</span></div>
+    <h2 class="display" style="margin-bottom:28px;">
+      <span class="i18n-fr">De l'exécution<br><em>à la direction créative.</em></span>
+      <span class="i18n-en">From execution<br><em>to creative direction.</em></span>
+    </h2>
 <div class="trajectory-strip">
 
       <div class="trajectory-step">
-        <span class="trajectory-eyebrow">Before</span>
-        <span class="trajectory-name">Execution</span>
-        <span class="trajectory-desc">Creating clear, polished assets and supporting internal communication needs across teams.</span>
+        <span class="trajectory-eyebrow"><span class="i18n-fr">Avant</span><span class="i18n-en">Before</span></span>
+        <span class="trajectory-name"><span class="i18n-fr">Exécution</span><span class="i18n-en">Execution</span></span>
+        <span class="trajectory-desc"><span class="i18n-fr">Créer des supports clairs et soignés, et répondre aux besoins de communication interne des équipes.</span><span class="i18n-en">Creating clear, polished assets and supporting internal communication needs across teams.</span></span>
       </div>
 
       <div class="trajectory-arrow" aria-hidden="true">
@@ -1830,9 +1900,9 @@ footer a:hover { color: var(--red); }
       </div>
 
       <div class="trajectory-step trajectory-step--now">
-        <span class="trajectory-eyebrow">Now</span>
-        <span class="trajectory-name">Systems</span>
-        <span class="trajectory-desc">Building templates, platforms and visual standards that drive consistency at scale.</span>
+        <span class="trajectory-eyebrow"><span class="i18n-fr">Maintenant</span><span class="i18n-en">Now</span></span>
+        <span class="trajectory-name"><span class="i18n-fr">Systèmes</span><span class="i18n-en">Systems</span></span>
+        <span class="trajectory-desc"><span class="i18n-fr">Construire des modèles, des plateformes et des standards visuels qui garantissent la cohérence à grande échelle.</span><span class="i18n-en">Building templates, platforms and visual standards that drive consistency at scale.</span></span>
       </div>
 
       <div class="trajectory-arrow" aria-hidden="true">
@@ -1842,19 +1912,23 @@ footer a:hover { color: var(--red); }
       </div>
 
       <div class="trajectory-step trajectory-step--next">
-        <span class="trajectory-eyebrow">Next</span>
-        <span class="trajectory-name">Direction</span>
-        <span class="trajectory-desc">Shaping a stronger, more coherent visual expression for corporate communications globally.</span>
+        <span class="trajectory-eyebrow"><span class="i18n-fr">Ensuite</span><span class="i18n-en">Next</span></span>
+        <span class="trajectory-name"><span class="i18n-fr">Direction</span><span class="i18n-en">Direction</span></span>
+        <span class="trajectory-desc"><span class="i18n-fr">Façonner une expression visuelle plus forte et plus cohérente pour la communication corporate à l'échelle globale.</span><span class="i18n-en">Shaping a stronger, more coherent visual expression for corporate communications globally.</span></span>
       </div>
 
     </div>
   </section>
 
 <section class="section-white profile-strengths-section">
-  <div class="label">What I bring</div>
-  <h2 class="display" style="margin-bottom:18px;">Four strengths<br><em>for this role.</em></h2>
+  <div class="label"><span class="i18n-fr">Ce que j'apporte</span><span class="i18n-en">What I bring</span></div>
+  <h2 class="display" style="margin-bottom:18px;">
+    <span class="i18n-fr">Quatre atouts<br><em>pour ce poste.</em></span>
+    <span class="i18n-en">Four strengths<br><em>for this role.</em></span>
+  </h2>
   <p class="body-md" style="max-width:620px;margin-bottom:48px;">
-    A combination of communication clarity, brand consistency, platform thinking and creative direction — shaped by a strong understanding of Symrise from the inside.
+    <span class="i18n-fr">Une combinaison de clarté de communication, de cohérence de marque, de réflexion plateforme et de direction créative — façonnée par une solide connaissance de Symrise vue de l'intérieur.</span>
+    <span class="i18n-en">A combination of communication clarity, brand consistency, platform thinking and creative direction — shaped by a strong understanding of Symrise from the inside.</span>
   </p>
 
   <div class="strengths-grid profile-strengths">
@@ -1862,60 +1936,60 @@ footer a:hover { color: var(--red); }
       <div class="strength-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/></svg>
       </div>
-      <div class="strength-h">Visual clarity</div>
-      <p class="strength-p">Turning complex internal messages into clear, structured and impactful communication.</p>
+      <div class="strength-h"><span class="i18n-fr">Clarté visuelle</span><span class="i18n-en">Visual clarity</span></div>
+      <p class="strength-p"><span class="i18n-fr">Transformer des messages internes complexes en une communication claire, structurée et percutante.</span><span class="i18n-en">Turning complex internal messages into clear, structured and impactful communication.</span></p>
     </div>
     <div class="strength-item">
       <div class="strength-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/><path d="M9 9h6v6H9z"/></svg>
       </div>
-      <div class="strength-h">Brand consistency</div>
-      <p class="strength-p">Building templates, standards and visual systems that help teams communicate with one recognizable voice.</p>
+      <div class="strength-h"><span class="i18n-fr">Cohérence de marque</span><span class="i18n-en">Brand consistency</span></div>
+      <p class="strength-p"><span class="i18n-fr">Construire des modèles, des standards et des systèmes visuels qui aident les équipes à communiquer d'une seule voix reconnaissable.</span><span class="i18n-en">Building templates, standards and visual systems that help teams communicate with one recognizable voice.</span></p>
     </div>
     <div class="strength-item">
       <div class="strength-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>
       </div>
-      <div class="strength-h">Platform UX &amp; digital systems</div>
-      <p class="strength-p">Improving internal touchpoints — asset libraries, hubs, screen networks and intranet spaces — with a focus on navigation, access and adoption.</p>
+      <div class="strength-h"><span class="i18n-fr">UX plateforme &amp; systèmes digitaux</span><span class="i18n-en">Platform UX &amp; digital systems</span></div>
+      <p class="strength-p"><span class="i18n-fr">Améliorer les points de contact internes — bibliothèques de ressources, hubs, réseaux d'écrans et espaces intranet — en mettant l'accent sur la navigation, l'accès et l'adoption.</span><span class="i18n-en">Improving internal touchpoints — asset libraries, hubs, screen networks and intranet spaces — with a focus on navigation, access and adoption.</span></p>
     </div>
     <div class="strength-item">
       <div class="strength-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/><path d="M7 7l10 10"/></svg>
       </div>
-      <div class="strength-h">Creative direction mindset</div>
-      <p class="strength-p">Moving beyond execution to advise, structure and elevate visual communication at a broader scale.</p>
+      <div class="strength-h"><span class="i18n-fr">État d'esprit direction créative</span><span class="i18n-en">Creative direction mindset</span></div>
+      <p class="strength-p"><span class="i18n-fr">Aller au-delà de l'exécution pour conseiller, structurer et élever la communication visuelle à plus grande échelle.</span><span class="i18n-en">Moving beyond execution to advise, structure and elevate visual communication at a broader scale.</span></p>
     </div>
   </div>
 </section>
 
 <section class="section-white profile-skills-section">
-  <div class="label">Skills &amp; tools</div>
-  <h2 class="display" style="margin-bottom:34px;">How I operate.</h2>
+  <div class="label"><span class="i18n-fr">Compétences &amp; outils</span><span class="i18n-en">Skills &amp; tools</span></div>
+  <h2 class="display" style="margin-bottom:34px;"><span class="i18n-fr">Comment je travaille.</span><span class="i18n-en">How I operate.</span></h2>
   <div class="skills-wrap">
     <div>
-      <div class="sg-title">Creative &amp; Visual Design</div>
+      <div class="sg-title"><span class="i18n-fr">Design créatif et visuel</span><span class="i18n-en">Creative &amp; Visual Design</span></div>
       <div class="sg-tags">
-        <span class="sg-tag accent">Visual storytelling</span>
-        <span class="sg-tag accent">Creative direction</span>
-        <span class="sg-tag accent">Layout systems</span>
-        <span class="sg-tag accent">Editorial design</span>
-        <span class="sg-tag accent">Presentation design</span>
-        <span class="sg-tag accent">Digital-first design</span>
-        <span class="sg-tag accent">Brand consistency</span>
+        <span class="sg-tag accent"><span class="i18n-fr">Storytelling visuel</span><span class="i18n-en">Visual storytelling</span></span>
+        <span class="sg-tag accent"><span class="i18n-fr">Direction créative</span><span class="i18n-en">Creative direction</span></span>
+        <span class="sg-tag accent"><span class="i18n-fr">Systèmes de mise en page</span><span class="i18n-en">Layout systems</span></span>
+        <span class="sg-tag accent"><span class="i18n-fr">Design éditorial</span><span class="i18n-en">Editorial design</span></span>
+        <span class="sg-tag accent"><span class="i18n-fr">Design de présentation</span><span class="i18n-en">Presentation design</span></span>
+        <span class="sg-tag accent"><span class="i18n-fr">Design digital-first</span><span class="i18n-en">Digital-first design</span></span>
+        <span class="sg-tag accent"><span class="i18n-fr">Cohérence de marque</span><span class="i18n-en">Brand consistency</span></span>
       </div>
-      <div class="sg-title">Corporate Communications</div>
+      <div class="sg-title"><span class="i18n-fr">Communication corporate</span><span class="i18n-en">Corporate Communications</span></div>
       <div class="sg-tags">
-        <span class="sg-tag">Internal communications</span>
-        <span class="sg-tag">Message hierarchy</span>
-        <span class="sg-tag">Cross-functional collaboration</span>
-        <span class="sg-tag">Stakeholder support</span>
-        <span class="sg-tag">Employee engagement</span>
-        <span class="sg-tag">Communication planning</span>
+        <span class="sg-tag"><span class="i18n-fr">Communication interne</span><span class="i18n-en">Internal communications</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Hiérarchie des messages</span><span class="i18n-en">Message hierarchy</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Collaboration transverse</span><span class="i18n-en">Cross-functional collaboration</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Accompagnement des parties prenantes</span><span class="i18n-en">Stakeholder support</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Engagement des collaborateurs</span><span class="i18n-en">Employee engagement</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Planification de la communication</span><span class="i18n-en">Communication planning</span></span>
       </div>
     </div>
     <div>
-      <div class="sg-title">Tools</div>
+      <div class="sg-title"><span class="i18n-fr">Outils</span><span class="i18n-en">Tools</span></div>
       <div class="sg-tags">
         <span class="sg-tag">Adobe InDesign</span>
         <span class="sg-tag">Illustrator</span>
@@ -1927,15 +2001,15 @@ footer a:hover { color: var(--red); }
         <span class="sg-tag">Microsoft 365</span>
         <span class="sg-tag">macOS</span>
       </div>
-      <div class="sg-title">Ways of working</div>
+      <div class="sg-title"><span class="i18n-fr">Façons de travailler</span><span class="i18n-en">Ways of working</span></div>
       <div class="sg-tags">
-        <span class="sg-tag">Creative ownership</span>
-        <span class="sg-tag">Precision</span>
-        <span class="sg-tag">Structure</span>
-        <span class="sg-tag">Autonomy</span>
-        <span class="sg-tag">Collaborative leadership</span>
-        <span class="sg-tag">Attention to detail</span>
-        <span class="sg-tag">Strategic thinking</span>
+        <span class="sg-tag"><span class="i18n-fr">Autonomie créative</span><span class="i18n-en">Creative ownership</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Précision</span><span class="i18n-en">Precision</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Structure</span><span class="i18n-en">Structure</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Autonomie</span><span class="i18n-en">Autonomy</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Leadership collaboratif</span><span class="i18n-en">Collaborative leadership</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Souci du détail</span><span class="i18n-en">Attention to detail</span></span>
+        <span class="sg-tag"><span class="i18n-fr">Pensée stratégique</span><span class="i18n-en">Strategic thinking</span></span>
       </div>
     </div>
   </div>
@@ -1944,55 +2018,60 @@ footer a:hover { color: var(--red); }
 <section class="section">
   <div class="creative-layout">
     <div class="creative-copy">
-      <div class="label">Creative sensibility</div>
-      <h2 class="display" style="margin-bottom:12px">What feeds<br><em>my creativity.</em></h2>
+      <div class="label"><span class="i18n-fr">Sensibilité créative</span><span class="i18n-en">Creative sensibility</span></div>
+      <h2 class="display" style="margin-bottom:12px">
+        <span class="i18n-fr">Ce qui nourrit<br><em>ma créativité.</em></span>
+        <span class="i18n-en">What feeds<br><em>my creativity.</em></span>
+      </h2>
          <p class="creative-quote-inline">
-           I have always been drawn to things that feel right before they need to be explained.
+           <span class="i18n-fr">J'ai toujours été attiré par les choses qui semblent justes avant même d'être expliquées.</span>
+           <span class="i18n-en">I have always been drawn to things that feel right before they need to be explained.</span>
          </p>
          
          <p class="body-md">
-           My inspiration does not only come from design. It comes from the way I look at spaces, scents, images and moments of distance.
+           <span class="i18n-fr">Mon inspiration ne vient pas seulement du design. Elle vient de ma façon de regarder les espaces, les senteurs, les images et les moments de recul.</span>
+           <span class="i18n-en">My inspiration does not only come from design. It comes from the way I look at spaces, scents, images and moments of distance.</span>
          </p>
     </div>
 
     <div class="worlds-grid">
       <div class="world-card wfb-1">
-        <img class="world-img" src="images/world-deco.jpg" alt="Interior design" onerror="this.style.display='none'">
+        <img class="world-img" src="images/world-deco.jpg" alt="Décoration d'intérieur" onerror="this.style.display='none'">
         <div class="world-overlay"></div>
         <div class="world-content">
           <div class="world-num">01</div>
-          <div class="world-title">Interior design</div>
-          <div class="world-phrase">Proportion, atmosphere and the role of silence. Spaces that feel clear without needing to explain themselves.</div>
+          <div class="world-title"><span class="i18n-fr">Décoration d'intérieur</span><span class="i18n-en">Interior design</span></div>
+          <div class="world-phrase"><span class="i18n-fr">Proportion, atmosphère et le rôle du silence. Des espaces qui semblent clairs sans avoir besoin de s'expliquer.</span><span class="i18n-en">Proportion, atmosphere and the role of silence. Spaces that feel clear without needing to explain themselves.</span></div>
         </div>
       </div>
 
       <div class="world-card wfb-2">
-        <img class="world-img" src="images/world-perfume.jpg" alt="Perfumery" onerror="this.style.display='none'">
+        <img class="world-img" src="images/world-perfume.jpg" alt="Parfumerie" onerror="this.style.display='none'">
         <div class="world-overlay"></div>
         <div class="world-content">
           <div class="world-num">02</div>
-          <div class="world-title">Perfumery</div>
-          <div class="world-phrase">Balance, trace and precision. The idea that something subtle can still create a strong impression.</div>
+          <div class="world-title"><span class="i18n-fr">Parfumerie</span><span class="i18n-en">Perfumery</span></div>
+          <div class="world-phrase"><span class="i18n-fr">Équilibre, sillage et précision. L'idée qu'une chose subtile peut malgré tout créer une forte impression.</span><span class="i18n-en">Balance, trace and precision. The idea that something subtle can still create a strong impression.</span></div>
         </div>
       </div>
 
       <div class="world-card wfb-3">
-        <img class="world-img" src="images/world-photo.jpg" alt="Photography" onerror="this.style.display='none'">
+        <img class="world-img" src="images/world-photo.jpg" alt="Photographie" onerror="this.style.display='none'">
         <div class="world-overlay"></div>
         <div class="world-content">
           <div class="world-num">03</div>
-          <div class="world-title">Photography</div>
-          <div class="world-phrase">Light, framing and timing. Knowing what to show, what to leave out and where the eye should land.</div>
+          <div class="world-title"><span class="i18n-fr">Photographie</span><span class="i18n-en">Photography</span></div>
+          <div class="world-phrase"><span class="i18n-fr">Lumière, cadrage et timing. Savoir ce qu'il faut montrer, ce qu'il faut omettre, et où le regard doit se poser.</span><span class="i18n-en">Light, framing and timing. Knowing what to show, what to leave out and where the eye should land.</span></div>
         </div>
       </div>
 
       <div class="world-card wfb-4">
-        <img class="world-img" src="images/world-travel.jpg" alt="Travels" onerror="this.style.display='none'">
+        <img class="world-img" src="images/world-travel.jpg" alt="Voyages" onerror="this.style.display='none'">
         <div class="world-overlay"></div>
         <div class="world-content">
           <div class="world-num">04</div>
-          <div class="world-title">Travels</div>
-          <div class="world-phrase">Changing environment, slowing down and making space for ideas to wander. Often in Brittany, stepping away helps me return with clearer intent.</div>
+          <div class="world-title"><span class="i18n-fr">Voyages</span><span class="i18n-en">Travels</span></div>
+          <div class="world-phrase"><span class="i18n-fr">Changer d'environnement, ralentir et laisser de la place aux idées pour vagabonder. Souvent en Bretagne, prendre du recul m'aide à revenir avec une intention plus claire.</span><span class="i18n-en">Changing environment, slowing down and making space for ideas to wander. Often in Brittany, stepping away helps me return with clearer intent.</span></div>
         </div>
       </div>
     </div>
@@ -2001,22 +2080,24 @@ footer a:hover { color: var(--red); }
 
 <footer>
   <span class="f-logo">PMMC</span>
-  <span>Built as a candidacy · Designed with intent · Refined with AI</span>
-  <a href="#" onclick="go('work')">Projects →</a>
+  <span><span class="i18n-fr">Conçu comme une candidature · Pensé avec intention · Affiné avec l'IA</span><span class="i18n-en">Built as a candidacy · Designed with intent · Refined with AI</span></span>
+  <a href="#" onclick="go('work')"><span class="i18n-fr">Projets →</span><span class="i18n-en">Projects →</span></a>
 </footer>
 
 </div>
 
 <div class="page" id="page-work">
   <section class="section">
-    <div class="label">Selected projects</div>
+    <div class="label"><span class="i18n-fr">Projets sélectionnés</span><span class="i18n-en">Selected projects</span></div>
 
     <h2 class="display work-heading">
-      Projects that make<br><em>communication clearer.</em>
+      <span class="i18n-fr">Des projets qui rendent<br><em>la communication plus claire.</em></span>
+      <span class="i18n-en">Projects that make<br><em>communication clearer.</em></span>
     </h2>
 
     <p class="body-lg" style="max-width:560px; margin-bottom:64px;">
-      Six selected proof points showing how design, structure and platform thinking can improve clarity, consistency and adoption.
+      <span class="i18n-fr">Six exemples concrets illustrant comment le design, la structure et la réflexion plateforme peuvent améliorer la clarté, la cohérence et l'adoption.</span>
+      <span class="i18n-en">Six selected proof points showing how design, structure and platform thinking can improve clarity, consistency and adoption.</span>
     </p>
 
     <div class="work-grid">
@@ -2024,19 +2105,20 @@ footer a:hover { color: var(--red); }
       <!-- 01 — 2027 CALENDAR -->
       <div class="work-card">
         <div class="work-card-visual">
-          <img src="images/calendar-2027.jpg" alt="2027 Corporate Calendar" class="work-img">
+          <img src="images/calendar-2027.jpg" alt="Calendrier corporate 2027" class="work-img">
         </div>
         <div class="work-card-body">
-          <div class="work-cat">Visual Concept &amp; Art Direction</div>
-          <div class="work-title">2027 Corporate Calendar</div>
+          <div class="work-cat"><span class="i18n-fr">Concept visuel et direction artistique</span><span class="i18n-en">Visual Concept &amp; Art Direction</span></div>
+          <div class="work-title"><span class="i18n-fr">Calendrier corporate 2027</span><span class="i18n-en">2027 Corporate Calendar</span></div>
           <p class="work-desc">
-            Creating a unified visual concept for the 2027 Corporate Calendar — moving from fragmented imagery toward a story-led system that reveals Symrise’s presence in everyday moments.
+            <span class="i18n-fr">Création d'un concept visuel unifié pour le calendrier corporate 2027 — passage d'une imagerie fragmentée à un système narratif révélant la présence de Symrise dans les moments du quotidien.</span>
+            <span class="i18n-en">Creating a unified visual concept for the 2027 Corporate Calendar — moving from fragmented imagery toward a story-led system that reveals Symrise’s presence in everyday moments.</span>
           </p>
           <div class="work-tags">
-            <span class="w-tag">Visual concept</span>
-            <span class="w-tag">Art direction</span>
-            <span class="w-tag">Story-led system</span>
-            <span class="w-tag">Brand expression</span>
+            <span class="w-tag"><span class="i18n-fr">Concept visuel</span><span class="i18n-en">Visual concept</span></span>
+            <span class="w-tag"><span class="i18n-fr">Direction artistique</span><span class="i18n-en">Art direction</span></span>
+            <span class="w-tag"><span class="i18n-fr">Système narratif</span><span class="i18n-en">Story-led system</span></span>
+            <span class="w-tag"><span class="i18n-fr">Expression de marque</span><span class="i18n-en">Brand expression</span></span>
           </div>
         </div>
       </div>
@@ -2045,39 +2127,41 @@ footer a:hover { color: var(--red); }
       <!-- 02 — SYMRISE LIBRARY -->
       <div class="work-card">
         <div class="work-card-visual">
-          <img src="images/media-center.jpg" alt="Media Center Relaunch" class="work-img">
+          <img src="images/media-center.jpg" alt="Relance du Media Center" class="work-img">
         </div>
         <div class="work-card-body">
-          <div class="work-cat">DAM / Digital Asset Management</div>
+          <div class="work-cat"><span class="i18n-fr">DAM / Gestion des actifs numériques</span><span class="i18n-en">DAM / Digital Asset Management</span></div>
           <div class="work-title">Symrise Library / Media Center</div>
           <p class="work-desc">
-            Restructuring Symrise’s DAM / Media Center experience with a stronger frontend logic — improving information architecture, navigation, naming conventions and user adoption to make brand assets easier to find, understand and use.
+            <span class="i18n-fr">Restructuration de l'expérience DAM / Media Center de Symrise avec une logique frontend renforcée — amélioration de l'architecture de l'information, de la navigation, des conventions de nommage et de l'adoption utilisateur, pour que les ressources de marque soient plus faciles à trouver, comprendre et utiliser.</span>
+            <span class="i18n-en">Restructuring Symrise’s DAM / Media Center experience with a stronger frontend logic — improving information architecture, navigation, naming conventions and user adoption to make brand assets easier to find, understand and use.</span>
           </p>
           <div class="work-tags">
-            <span class="w-tag">Information architecture</span>
+            <span class="w-tag"><span class="i18n-fr">Architecture de l'information</span><span class="i18n-en">Information architecture</span></span>
             <span class="w-tag">UX &amp; UI</span>
-            <span class="w-tag">Content structure</span>
-            <span class="w-tag">Asset adoption</span>
+            <span class="w-tag"><span class="i18n-fr">Structure de contenu</span><span class="i18n-en">Content structure</span></span>
+            <span class="w-tag"><span class="i18n-fr">Adoption des ressources</span><span class="i18n-en">Asset adoption</span></span>
           </div>
         </div>
       </div>
 
 
       <!-- 03 — ONE SYM Hub -->
-      <a class="work-card work-card-link" href="https://symriseag.sharepoint.com/sites/ONESYM-HUB" target="_blank" rel="noopener noreferrer" aria-label="Open ONE SYM / ONE Symrise Hub in a new tab">
+      <a class="work-card work-card-link" href="https://symriseag.sharepoint.com/sites/ONESYM-HUB" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le hub ONE SYM / ONE Symrise dans un nouvel onglet">
         <div class="work-card-visual">
           <img src="images/one-sym-hub.jpg" alt="ONE SYM Hub" class="work-img">
         </div>
         <div class="work-card-body">
-          <div class="work-cat">Internal Platform &amp; Brand Narrative</div>
+          <div class="work-cat"><span class="i18n-fr">Plateforme interne et narration de marque</span><span class="i18n-en">Internal Platform &amp; Brand Narrative</span></div>
           <div class="work-title">ONE SYM / ONE Symrise Hub</div>
           <p class="work-desc">
-            Supporting the ONE SYM and ONE Symrise narrative by structuring a dedicated hub that centralizes key content, updates and resources — giving employees one place to follow the initiative, understand its progress and connect the transformation narrative with concrete materials.
+            <span class="i18n-fr">Accompagnement de la narration ONE SYM et ONE Symrise en structurant un hub dédié qui centralise les contenus clés, les actualités et les ressources — offrant aux collaborateurs un espace unique pour suivre l'initiative, comprendre son avancement et relier le récit de transformation à des supports concrets.</span>
+            <span class="i18n-en">Supporting the ONE SYM and ONE Symrise narrative by structuring a dedicated hub that centralizes key content, updates and resources — giving employees one place to follow the initiative, understand its progress and connect the transformation narrative with concrete materials.</span>
           </p>
           <div class="work-tags">
-            <span class="w-tag">Internal platform</span>
-            <span class="w-tag">Content structure</span>
-            <span class="w-tag">Editorial UX</span>
+            <span class="w-tag"><span class="i18n-fr">Plateforme interne</span><span class="i18n-en">Internal platform</span></span>
+            <span class="w-tag"><span class="i18n-fr">Structure de contenu</span><span class="i18n-en">Content structure</span></span>
+            <span class="w-tag"><span class="i18n-fr">UX éditoriale</span><span class="i18n-en">Editorial UX</span></span>
             <span class="w-tag">ONE Symrise</span>
           </div>
         </div>
@@ -2087,40 +2171,42 @@ footer a:hover { color: var(--red); }
       <!-- 04 — CIRCULAR ECONOMY -->
       <div class="work-card">
         <div class="work-card-visual">
-          <img src="images/circular-economy.jpg" alt="Circular Economy Communication" class="work-img">
+          <img src="images/circular-economy.jpg" alt="Économie circulaire" class="work-img">
         </div>
         <div class="work-card-body">
-          <div class="work-cat">Sustainability Communication</div>
-          <div class="work-title">Circular Economy</div>
+          <div class="work-cat"><span class="i18n-fr">Communication développement durable</span><span class="i18n-en">Sustainability Communication</span></div>
+          <div class="work-title"><span class="i18n-fr">Économie circulaire</span><span class="i18n-en">Circular Economy</span></div>
           <p class="work-desc">
-            Supporting communication around circular economy topics by turning complex sustainability messages into clearer visual narratives, helping internal audiences understand the logic, ambition and impact behind the initiative.
+            <span class="i18n-fr">Accompagnement de la communication autour des sujets d'économie circulaire en transformant des messages de développement durable complexes en récits visuels plus clairs, aidant les publics internes à comprendre la logique, l'ambition et l'impact de l'initiative.</span>
+            <span class="i18n-en">Supporting communication around circular economy topics by turning complex sustainability messages into clearer visual narratives, helping internal audiences understand the logic, ambition and impact behind the initiative.</span>
           </p>
           <div class="work-tags">
-            <span class="w-tag">Sustainability</span>
-            <span class="w-tag">Message clarity</span>
-            <span class="w-tag">Visual storytelling</span>
-            <span class="w-tag">Internal communication</span>
+            <span class="w-tag"><span class="i18n-fr">Développement durable</span><span class="i18n-en">Sustainability</span></span>
+            <span class="w-tag"><span class="i18n-fr">Clarté du message</span><span class="i18n-en">Message clarity</span></span>
+            <span class="w-tag"><span class="i18n-fr">Storytelling visuel</span><span class="i18n-en">Visual storytelling</span></span>
+            <span class="w-tag"><span class="i18n-fr">Communication interne</span><span class="i18n-en">Internal communication</span></span>
           </div>
         </div>
       </div>
 
 
       <!-- 05 — CORE VALUES -->
-      <a class="work-card work-card-link" href="https://www.symrise.com/our-company/this-is-us/" target="_blank" rel="noopener noreferrer" aria-label="Open Core Values page in a new tab">
+      <a class="work-card work-card-link" href="https://www.symrise.com/our-company/this-is-us/" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la page Core Values dans un nouvel onglet">
         <div class="work-card-visual">
-          <img src="images/core-values.jpg" alt="Core Values Visual Direction" class="work-img">
+          <img src="images/core-values.jpg" alt="Direction visuelle des Core Values" class="work-img">
         </div>
         <div class="work-card-body">
-          <div class="work-cat">Art Direction</div>
-          <div class="work-title">Core Values — Visual Direction</div>
+          <div class="work-cat"><span class="i18n-fr">Direction artistique</span><span class="i18n-en">Art Direction</span></div>
+          <div class="work-title"><span class="i18n-fr">Core Values — Direction visuelle</span><span class="i18n-en">Core Values — Visual Direction</span></div>
           <p class="work-desc">
-            Developing a visual direction to support Symrise’s Core Values communication — translating strategic principles into clearer, more consistent and engaging internal materials.
+            <span class="i18n-fr">Développement d'une direction visuelle pour accompagner la communication des Core Values de Symrise — traduction de principes stratégiques en supports internes plus clairs, plus cohérents et plus engageants.</span>
+            <span class="i18n-en">Developing a visual direction to support Symrise’s Core Values communication — translating strategic principles into clearer, more consistent and engaging internal materials.</span>
           </p>
           <div class="work-tags">
-            <span class="w-tag">Art direction</span>
-            <span class="w-tag">Values communication</span>
-            <span class="w-tag">Visual system</span>
-            <span class="w-tag">Internal engagement</span>
+            <span class="w-tag"><span class="i18n-fr">Direction artistique</span><span class="i18n-en">Art direction</span></span>
+            <span class="w-tag"><span class="i18n-fr">Communication des valeurs</span><span class="i18n-en">Values communication</span></span>
+            <span class="w-tag"><span class="i18n-fr">Système visuel</span><span class="i18n-en">Visual system</span></span>
+            <span class="w-tag"><span class="i18n-fr">Engagement interne</span><span class="i18n-en">Internal engagement</span></span>
           </div>
         </div>
       </a>
@@ -2129,20 +2215,21 @@ footer a:hover { color: var(--red); }
       <!-- 06 — SCREEN NETWORK -->
       <div class="work-card">
         <div class="work-card-visual">
-          <img src="images/screen-network.jpg" alt="Screen Network Governance" class="work-img">
+          <img src="images/screen-network.jpg" alt="Gouvernance du réseau d'écrans" class="work-img">
         </div>
         <div class="work-card-body">
-          <div class="work-cat">Digital Signage &amp; Governance</div>
-          <div class="work-title">Screen Network Governance</div>
+          <div class="work-cat"><span class="i18n-fr">Affichage numérique et gouvernance</span><span class="i18n-en">Digital Signage &amp; Governance</span></div>
+          <div class="work-title"><span class="i18n-fr">Gouvernance du réseau d'écrans</span><span class="i18n-en">Screen Network Governance</span></div>
           <p class="work-desc">
-            Creating and expanding an internal screen network across several French sites — developing templates, editorial standards and workflows, while training local teams to publish content more autonomously and consistently.
+            <span class="i18n-fr">Création et développement d'un réseau d'écrans internes sur plusieurs sites français — élaboration de modèles, de standards éditoriaux et de processus, tout en formant les équipes locales à publier du contenu de façon plus autonome et cohérente.</span>
+            <span class="i18n-en">Creating and expanding an internal screen network across several French sites — developing templates, editorial standards and workflows, while training local teams to publish content more autonomously and consistently.</span>
           </p>
           <div class="work-tags">
-            <span class="w-tag">Network rollout</span>
-            <span class="w-tag">Training</span>
-            <span class="w-tag">Digital signage</span>
-            <span class="w-tag">Governance</span>
-            <span class="w-tag">Templates &amp; guidelines</span>
+            <span class="w-tag"><span class="i18n-fr">Déploiement du réseau</span><span class="i18n-en">Network rollout</span></span>
+            <span class="w-tag"><span class="i18n-fr">Formation</span><span class="i18n-en">Training</span></span>
+            <span class="w-tag"><span class="i18n-fr">Affichage numérique</span><span class="i18n-en">Digital signage</span></span>
+            <span class="w-tag"><span class="i18n-fr">Gouvernance</span><span class="i18n-en">Governance</span></span>
+            <span class="w-tag"><span class="i18n-fr">Modèles et lignes directrices</span><span class="i18n-en">Templates &amp; guidelines</span></span>
           </div>
         </div>
       </div>
@@ -2152,8 +2239,8 @@ footer a:hover { color: var(--red); }
 
   <footer>
     <span class="f-logo">PMMC</span>
-    <span>Built as a candidacy · Designed with intent · Refined with AI</span>
-    <a href="#" onclick="go('letter')">Letter →</a>
+    <span><span class="i18n-fr">Conçu comme une candidature · Pensé avec intention · Affiné avec l'IA</span><span class="i18n-en">Built as a candidacy · Designed with intent · Refined with AI</span></span>
+    <a href="#" onclick="go('letter')"><span class="i18n-fr">Lettre →</span><span class="i18n-en">Letter →</span></a>
   </footer>
 </div>
 
@@ -2164,20 +2251,20 @@ footer a:hover { color: var(--red); }
 
     <div class="cover-header">
       <div class="cover-header-left">
-        <div class="cover-eyebrow">Motivation letter</div>
+        <div class="cover-eyebrow"><span class="i18n-fr">Lettre de motivation</span><span class="i18n-en">Motivation letter</span></div>
         <h1 class="cover-title">Global<br><em>Creative Design Lead.</em></h1>
       </div>
 
       <div class="cover-header-right">
         <div class="cover-meta-line"><strong>Pierre-Marie Meston Chevalier</strong></div>
-        <div class="cover-meta-line">Corporate Communications · Symrise</div>
+        <div class="cover-meta-line"><span class="i18n-fr">Communication Corporate · Symrise</span><span class="i18n-en">Corporate Communications · Symrise</span></div>
       </div>
     </div>
 
     <div class="letter-outer">
       <div class="letter-sheet">
 
-        <div class="letter-date" id="letter-date">Rennes, May 2026</div>
+        <div class="letter-date" id="letter-date"><span class="i18n-fr">Rennes, mai 2026</span><span class="i18n-en">Rennes, May 2026</span></div>
 
         <div class="letter-salutation" id="letter-salutation"></div>
 
@@ -2190,9 +2277,9 @@ footer a:hover { color: var(--red); }
         </div>
 
         <div class="letter-sign" id="letter-sign">
-          <div class="letter-sign-closing">With sincerity,</div>
+          <div class="letter-sign-closing"><span class="i18n-fr">Sincèrement,</span><span class="i18n-en">With sincerity,</span></div>
           <div class="letter-sign-name">Pierre-Marie Meston Chevalier</div>
-          <div class="letter-sign-title">Corporate Communications · Symrise</div>
+          <div class="letter-sign-title"><span class="i18n-fr">Communication Corporate · Symrise</span><span class="i18n-en">Corporate Communications · Symrise</span></div>
         </div>
 
       </div>
@@ -2200,7 +2287,7 @@ footer a:hover { color: var(--red); }
 
     <footer>
       <span class="f-logo">PMMC</span>
-      <span>Built as a candidacy · Designed with intent · Refined with AI</span>
+      <span><span class="i18n-fr">Conçu comme une candidature · Pensé avec intention · Affiné avec l'IA</span><span class="i18n-en">Built as a candidacy · Designed with intent · Refined with AI</span></span>
       <a href="#" onclick="go('contact')">Contact →</a>
     </footer>
 
@@ -2221,9 +2308,15 @@ footer a:hover { color: var(--red); }
       </div>
 
       <div>
-        <div class="contact-label">Get in touch</div>
-        <div class="contact-title">Let's talk about<br><em style="font-style:italic;color:var(--red);">Creative Design.</em></div>
-        <p class="contact-sub">Open to discussing the Global Creative Design Lead opportunity and how visual communication can support a more consistent Symrise experience.</p>
+        <div class="contact-label"><span class="i18n-fr">Me contacter</span><span class="i18n-en">Get in touch</span></div>
+        <div class="contact-title">
+          <span class="i18n-fr">Parlons de<br><em style="font-style:italic;color:var(--red);">Design Créatif.</em></span>
+          <span class="i18n-en">Let's talk about<br><em style="font-style:italic;color:var(--red);">Creative Design.</em></span>
+        </div>
+        <p class="contact-sub">
+          <span class="i18n-fr">Ouvert à échanger sur le poste de Global Creative Design Lead et sur la façon dont la communication visuelle peut renforcer la cohérence de l'expérience Symrise.</span>
+          <span class="i18n-en">Open to discussing the Global Creative Design Lead opportunity and how visual communication can support a more consistent Symrise experience.</span>
+        </p>
 
         <div class="contact-lines">
           <div class="contact-line">
@@ -2232,7 +2325,7 @@ footer a:hover { color: var(--red); }
             </div>
             <div>
               <div class="c-strong">pierre-marie.meston@symrise.com</div>
-              <div class="c-hint">Professional email</div>
+              <div class="c-hint"><span class="i18n-fr">E-mail professionnel</span><span class="i18n-en">Professional email</span></div>
             </div>
           </div>
           <div class="contact-line">
@@ -2249,13 +2342,13 @@ footer a:hover { color: var(--red); }
               <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div>
-              <div class="c-strong">France-based</div>
-              <div class="c-hint">Open to global collaboration</div>
+              <div class="c-strong"><span class="i18n-fr">Basé en France</span><span class="i18n-en">France-based</span></div>
+              <div class="c-hint"><span class="i18n-fr">Ouvert à la collaboration à l'international</span><span class="i18n-en">Open to global collaboration</span></div>
             </div>
           </div>
         </div>
 
-        <a class="btn btn-red" href="mailto:pierre-marie.meston@symrise.com">Send a message</a>
+        <a class="btn btn-red" href="mailto:pierre-marie.meston@symrise.com"><span class="i18n-fr">Envoyer un message</span><span class="i18n-en">Send a message</span></a>
       </div>
 
     </div>
@@ -2286,6 +2379,24 @@ function go(id) {
   return false;
 }
 
+/* ─── Language toggle ─── */
+let currentLang = 'fr';
+
+function toggleLang() {
+  currentLang = currentLang === 'fr' ? 'en' : 'fr';
+  document.body.classList.toggle('lang-fr', currentLang === 'fr');
+  document.body.classList.toggle('lang-en', currentLang === 'en');
+
+  const label = document.getElementById('lang-toggle-label');
+  if (label) label.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+
+  const letterPage = document.getElementById('page-letter');
+  if (letterPage && letterPage.classList.contains('active')) {
+    resetLetter();
+    setTimeout(play, 300);
+  }
+}
+
 const SPEEDS = { slow: 45, normal: 30, fast: 16 };
 let speed = 'normal';
 let delay = SPEEDS.normal;
@@ -2293,25 +2404,41 @@ let playing = false;
 let done = false;
 let timeoutId = null;
 
-const SALUTATION = "Dear Marc,";
+const SALUTATION_FR = "Cher Marc,";
+const SALUTATION_EN = "Dear Marc,";
 
-const PARAGRAPHS = [
+const PARAGRAPHS_FR = [
+  "Je postule au poste de Global Creative Design Lead car il reflète la direction que mon travail a déjà prise chez Symrise : passer de l'exécution visuelle à une contribution créative plus large, des supports individuels à des systèmes évolutifs, et de demandes isolées à un langage visuel plus cohérent.",
+  "Au cours des quatre dernières années, j'ai développé une solide connaissance de Symrise de l'intérieur — son organisation, son identité visuelle, ses besoins en communication, et la manière dont les équipes utilisent les plateformes et ressources internes au quotidien. Être parti des sujets de communication de BU pour évoluer progressivement vers des projets de Communication Corporate plus larges m'a donné une vision concrète à la fois des besoins locaux et de la cohérence globale.",
+  "À travers des projets comme la relance du Media Center, le réseau d'écrans, la communication des Core Values, ONE SYM / ONE Symrise, les sujets d'économie circulaire et les supports éditoriaux corporate, je me suis de plus en plus concentré sur le fait de rendre la communication plus claire, plus structurée et plus facile à utiliser. Ce qui m'intéresse le plus, ce n'est pas seulement de créer de beaux visuels, mais de construire des systèmes, des modèles et des standards qui aident les autres à communiquer avec plus de cohérence et d'impact.",
+  "C'est pourquoi ce poste me semble être une suite naturelle. Il rassemble ce que j'aime le plus et ce sur quoi je pense pouvoir apporter le plus : la direction créative, la clarté visuelle, la gouvernance du design, des outils concrets, et une solide compréhension du fonctionnement de la Communication Corporate de l'intérieur.",
+  "J'apporterais une sensibilité créative, de la rigueur, le sens du détail et une bonne connaissance de l'environnement interne de Symrise. Mon ambition serait de contribuer à façonner une expression visuelle plus cohérente pour la Communication Corporate, tout en développant des solutions de design utiles, évolutives et réellement adoptées par les équipes.",
+  "Pour moi, cette opportunité ne consiste pas seulement à faire plus de design. Il s'agit d'aider à définir l'apparence, le ressenti et la manière de communiquer de la Communication Corporate au niveau Groupe."
+];
+
+const PARAGRAPHS_EN = [
   "I am applying for the Global Creative Design Lead role because it reflects the direction my work has already been taking at Symrise: moving from visual execution to broader creative contribution, from individual assets to scalable systems, and from isolated requests to a more consistent visual language.",
   "Over the past four years, I have built a strong understanding of Symrise from the inside — its organization, its visual identity, its communication needs, and the way teams use internal platforms and assets in their daily work. Starting from BU communication topics and progressively moving toward broader Corporate Communications projects has given me a practical view of both local needs and global consistency.",
   "Through projects such as the Media Center relaunch, the screen network, Core Values communication, ONE SYM / ONE Symrise, circular economy topics and corporate editorial materials, I have increasingly focused on making communication clearer, more structured and easier to use. What interests me most is not only creating strong visuals, but building systems, templates and standards that help others communicate with more consistency and impact.",
   "This is why the role feels like a natural next step. It brings together what I enjoy most and where I believe I can contribute: creative direction, visual clarity, design governance, practical tools, and a strong understanding of how Corporate Communications works from within.",
-  "I would bring creative sensitivity, structure, attention to detail and a good knowledge of Symrise’s internal environment. My ambition would be to help shape a more coherent visual expression for Corporate Communications, while developing design solutions that are useful, scalable and genuinely adopted by teams.",
+  "I would bring creative sensitivity, structure, attention to detail and a good knowledge of Symrise's internal environment. My ambition would be to help shape a more coherent visual expression for Corporate Communications, while developing design solutions that are useful, scalable and genuinely adopted by teams.",
   "For me, this opportunity is not only about doing more design. It is about helping define how Corporate Communications looks, feels and communicates at Group level."
 ];
 
-const allSegments = [
-  { target: 'letter-salutation', text: SALUTATION },
-  { target: 'p1', text: PARAGRAPHS[0] },
-  { target: 'p2', text: PARAGRAPHS[1] },
-  { target: 'p3', text: PARAGRAPHS[2] },
-  { target: 'p4', text: PARAGRAPHS[3] },
-  { target: 'p5', text: PARAGRAPHS[4] }
-];
+function getSegments() {
+  const sal = currentLang === 'fr' ? SALUTATION_FR : SALUTATION_EN;
+  const paras = currentLang === 'fr' ? PARAGRAPHS_FR : PARAGRAPHS_EN;
+  return [
+    { target: 'letter-salutation', text: sal },
+    { target: 'p1', text: paras[0] },
+    { target: 'p2', text: paras[1] },
+    { target: 'p3', text: paras[2] },
+    { target: 'p4', text: paras[3] },
+    { target: 'p5', text: paras[4] }
+  ];
+}
+
+let allSegments = getSegments();
 
 let currentSeg = 0;
 let currentChar = 0;
@@ -2383,6 +2510,7 @@ function resetLetter() {
 
   if (timeoutId) clearTimeout(timeoutId);
 
+  allSegments = getSegments();
   currentSeg = 0;
   currentChar = 0;
 
