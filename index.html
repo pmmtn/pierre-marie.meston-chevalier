@@ -1546,7 +1546,7 @@ footer a:hover { color: var(--red); }
 ════════════════════════════════════════════════ */
 .trajectory-strip {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 0;
   margin-top: 8px;
 }
@@ -1556,52 +1556,63 @@ footer a:hover { color: var(--red); }
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 32px 36px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
+  padding: 28px 24px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   position: relative;
-  overflow: hidden;
-  transition: box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+  overflow: visible;
+  transition: none;
 }
 
-.trajectory-step:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+/* Apple-like hierarchy: same palette, different emphasis */
+.trajectory-step:first-child {
+  opacity: 0.52;
 }
 
 .trajectory-step--now {
-  background: var(--bg-white);
-  border-color: rgba(197, 23, 24, 0.18);
-}
-
-.trajectory-step--now::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--red);
-  border-radius: 0;
+  opacity: 1;
 }
 
 .trajectory-step--next {
-  background: var(--red-soft);
-  border-color: rgba(197, 23, 24, 0.12);
+  opacity: 0.72;
 }
 
 .trajectory-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-4);
+  color: var(--text-3);
 }
 
-.trajectory-step--now .trajectory-eyebrow,
-.trajectory-step--next .trajectory-eyebrow {
+/* Past = filled neutral dot, Now = one red accent, Future = outlined dot */
+.trajectory-eyebrow::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.42;
+  flex-shrink: 0;
+}
+
+.trajectory-step--now .trajectory-eyebrow {
   color: var(--red);
+}
+
+.trajectory-step--now .trajectory-eyebrow::before {
+  opacity: 1;
+}
+
+.trajectory-step--next .trajectory-eyebrow::before {
+  background: transparent;
+  border: 1px solid currentColor;
+  opacity: 0.7;
 }
 
 .trajectory-name {
@@ -1615,7 +1626,7 @@ footer a:hover { color: var(--red); }
 }
 
 .trajectory-step--now .trajectory-name {
-  color: var(--red);
+  font-weight: 500;
 }
 
 .trajectory-desc {
@@ -1630,11 +1641,12 @@ footer a:hover { color: var(--red); }
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   flex-shrink: 0;
-  width: 48px;
-  margin-top: 44px;
-  color: var(--red);
-  opacity: 0.45;
+  width: 56px;
+  margin: 0;
+  color: var(--text-4);
+  opacity: 0.8;
 }
 
 @media (max-width: 768px) {
@@ -1643,13 +1655,14 @@ footer a:hover { color: var(--red); }
     gap: 0;
   }
   .trajectory-arrow {
+    align-self: center;
     margin: 0;
     width: 100%;
     height: 36px;
     transform: rotate(90deg);
   }
   .trajectory-step {
-    padding: 24px 24px;
+    padding: 24px 0;
   }
   .trajectory-desc {
     max-width: 100%;
